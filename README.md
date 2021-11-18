@@ -1,18 +1,21 @@
 [NOMBRE DE BODEGA]es una bodega de vinos y otros productos derivados de la vid
 
 
-- Publico objetivo
+- Público objetivo:
 Aquellos que quieran experimentar una verdadera experiencia vinculada al vino argentino, no solo wine tasting, sino todo lo relacionado a la tierra y a la flora autoctona
 
 
-- Listado de 5 páginas referentes en las que se basa su proyecto
+- Listado de 5 páginas referentes en las que se basa su proyecto:
+https://zuccardiwines.com/
+https://www.nietosenetiner.com.ar/
+https://www.bodegasbianchi.com.ar/
+https://www.bodegasalentein.com/es/home.html
+
+
+- Listado del grupo con una breve descripción de cada uno:
 
 
 
-- Listado del grupo con una breve descripción de cada uno
-
-
-
-- Link del tablero de trabajo en donde se encuentran trabajando
+- Link del tablero de trabajo en donde se encuentran trabajando: https://trello.com/b/2zganX9O/digital-house-tienda-online
 
 
