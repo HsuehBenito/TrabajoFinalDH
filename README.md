@@ -14,6 +14,10 @@ Aquellos que quieran experimentar una verdadera experiencia vinculada al vino ar
 
 
 - Listado del grupo con una breve descripción de cada uno:
+- Victorina carelli
+- Agustín Núñez
+- Jonathan Colamaio
+- Benito Hsueh
 
 
 
