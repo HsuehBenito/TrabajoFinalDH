@@ -6,10 +6,11 @@ Aquellos que quieran experimentar una verdadera experiencia vinculada al vino ar
 
 
 - Listado de 5 páginas referentes en las que se basa su proyecto:
-https://zuccardiwines.com/
-https://www.nietosenetiner.com.ar/
-https://www.bodegasbianchi.com.ar/
-https://www.bodegasalentein.com/es/home.html
+- https://zuccardiwines.com/
+- https://www.nietosenetiner.com.ar/
+- https://www.bodegasbianchi.com.ar/
+- https://www.bodegasalentein.com/es/home.html
+- https://www.chandon.com.ar/
 
 
 - Listado del grupo con una breve descripción de cada uno:
