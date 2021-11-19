@@ -1,8 +1,8 @@
-[NOMBRE DE BODEGA]es una bodega de vinos y otros productos derivados de la vid
+[NOMBRE DE BODEGA]es una bodega de vinos que elabora productos 100% naturales de alta calidad que derivadan de nuestra naturaleza. 
 
 
 - Público objetivo:
-Aquellos que quieran experimentar una verdadera experiencia vinculada al vino argentino, no solo wine tasting, sino todo lo relacionado a la tierra y a la flora autoctona
+Nuestros productos son dirigidos, principalmente, para todos los que deseen experimentar una verdadera degustación del buen vino argentino. Nuestro diferencial es que el consumidor pueda llevar a su mesa, a través de una copa, un viaje a nuestra Bodega.
 
 
 - Listado de 5 páginas referentes en las que se basa su proyecto:
