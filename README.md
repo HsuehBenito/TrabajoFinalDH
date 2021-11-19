@@ -14,7 +14,7 @@ Nuestros productos son dirigidos, principalmente, para todos los que deseen expe
 
 
 - Listado del grupo con una breve descripción de cada uno:
-- Victorina carelli:
+- Victorina carelli: "Hola, tengo 30 años y todos me dicen Victo o Vic. Vivo en Palermo, tengo un perro que se llama Bandido y soy publicisita. Trabajé muchos años en agencia donde casi siempre me desarrollé en la parte de creación de contenido para marcas. Hace unos años que soy freelance y en pandemia me pasó que los clientes que tenía estaban necesitando un espacio dónde poder comercializar sus productos/servicios. Tienda nube y esas plataformas estaban quedando obsoletas por ende querían tener sus propias webs. Es por eso, que me pareció interesante saber programar para poder ofrecerlo. La parte en la que más me siento comoda es en lo visual, pero con el tiempo iré tomando confianza al código!"
 - Agustín Núñez:
 - Jonathan Colamaio:
 - Benito Hsueh:
