@@ -23,4 +23,4 @@ Nuestros productos son dirigidos, principalmente, para todos los que deseen expe
 
 - Link del tablero de trabajo en donde se encuentran trabajando: https://trello.com/b/2zganX9O/digital-house-tienda-online
 
-
+- Link de Figma: https://www.figma.com/file/OW6ivgXLxUrmrMft7evw21/Alzacopas-%F0%9F%8D%B7---Ecommerce-DH?node-id=0%3A1
