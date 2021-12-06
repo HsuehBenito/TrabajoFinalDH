@@ -14,5 +14,5 @@ app.get('/home', (req,res) =>{
 app.use(express.static(path.join(__dirname, './public')));  
 
 app.listen(3002, () => {
-    console.log("Servidor ON");
+    console.log("Servidor ON MAKINOLA");
 });
