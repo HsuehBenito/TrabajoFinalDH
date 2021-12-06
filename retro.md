@@ -3,4 +3,4 @@
 - Coordinar meetings semanales para actualizar en qué situación está cada uno con sus tareas.
 - Dejar perder el contacto por más de 3 días.
 -  Motiva la responsabilidad y el compromiso mutuo.
-- Que uno solo no tome la decisión de las tareas a realizar, que exista el debate.
+- Que uno solo no tome la decisión de las tareas a realizar, que exista el debate..
