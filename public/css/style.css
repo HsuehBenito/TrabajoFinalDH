@@ -133,19 +133,57 @@ body {
 
 @media (min-width: 1200px) {
     body {
-        
         background-size: 117%;
-    
     }
     .iconotlf {
         display: none;
-}
-    .headerTop {
-        display: flex;
-        justify-content: center;
-
     }
-    .navegador {
+    .lupita{
         display: block;
+        margin: 35px 8px 0px -13px;
+    }
+    .navegador{
+        display: flex;
+        justify-content: space-between;
+    }
+    .headerTop {
+        justify-content: space-around;
+        display: flex;
+        flex-direction: row;
+    }
+    .navegador ul{
+        list-style: none;
+        padding: 0;
+        margin: 24px 0px 55px 0px;
+        display: flex;
+    }
+    .navegador li{
+        margin: 0 15px;
+    }
+    .navegador a{
+        text-decoration: none;
+        font-size: 42px;;
+        color: whitesmoke;
+    }
+    .logo{
+        font-size: 94px;
+        margin-left: 21px;
+        text-align: left;
+        width: 50%;
+    }
+    .slogan1{
+        font-size: 64px;
+        font-weight: bold;
+        margin: 100px 0px 38px 0px;
+    }
+    #masInfo{
+        font-size: 62px;
+        width: 500px;
+        color: burlywood;
+    }
+
+    .footercito{
+        font-size: 35px;
+        margin-top: 150px;
     }
 }
