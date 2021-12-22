@@ -10,6 +10,10 @@ app.get('/home', (req,res) =>{
     
     res.sendFile((__dirname + '/views/home.html'));
 });
+app.get('/registro', (req,res) =>{
+    
+    res.sendFile((__dirname + '/views/formulario.html'));
+});
 
 app.use(express.static(path.join(__dirname, './public')));  
 

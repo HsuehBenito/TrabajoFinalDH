@@ -1,4 +1,151 @@
-.homeFondo {
-    width: 100%;
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: "Quattrocento";
+   
+}
+
+body {
+    background-image: url("/img/fotium.jpg");
+    background-size: 100em;
+    background-repeat: no-repeat;
     
+    
+}
+.logo {
+    text-align: center;
+    font-size: 90px;
+    color: #7B0505;
+    margin: 0px 0px 30px 0px;
+
+}
+.lupita {
+    display: none;
+}
+
+.slogan1{
+    text-align: center;
+    font-size: 50px;
+    color: white;
+    padding: 10px 0px 5px 0px;
+}
+
+    
+
+#masInfo {
+
+    text-align: center;
+    background-color: white;
+    color: black;
+    font-size: 22px;
+    padding: 14px;
+    border-radius: 26px;
+    border: none;
+    font-family: "Quattrocento";
+}
+
+#instagram {
+    color: #30618A;
+    font-size: 50px;
+    margin-right: 45px;
+}
+
+#facebook {
+    color: white;
+    background-color: blue;
+    font-size: 45px;
+    padding: 5px;
+    
+    
+}
+
+#whatsapp {
+    color: white;
+    background-color: #25D366;
+    font-size: 50px;
+    border-radius: 40px;
+    margin-left: 45px;
+}
+
+
+.centrarInfo {
+    display: flex;
+    justify-content: center;
+    
+}
+
+.iconotlf {
+    background-color: white;
+    color: black;
+    display: block;
+    max-width: 63px;
+    padding: 11px 0;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 30px;
+    margin: auto;
+}
+    
+
+.headerTop {
+    display: flex;
+    flex-direction: column;
+
+}
+    
+
+.navegador {
+    display: none;
+}
+
+.redesSociales {
+    display: flex;
+   justify-content: center;
+   padding: 80px 0px 60px 0px;
+   
+}
+.footercito {
+    display: block;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+}
+
+/* tablet */ 
+
+@media (min-width: 768px) {
+.iconotlf {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#masInfo {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.footercito{
+    margin-top: 35px;
+}
+
+}
+/* pc */
+
+@media (min-width: 1200px) {
+    body {
+        
+        background-size: 117%;
+    
+    }
+    .iconotlf {
+        display: none;
+}
+    .headerTop {
+        display: flex;
+        justify-content: center;
+
+    }
+    .navegador {
+        display: block;
+    }
 }
