@@ -11,6 +11,11 @@ app.get('/registro', (req,res) =>{
     res.sendFile((__dirname + '/views/formulario.html'));
 });
 
+app.get('/login', (req,res) =>{
+    
+    res.sendFile((__dirname + '/views/login.html'));
+});
+
 app.use(express.static(path.join(__dirname, './public')));  
 
 
