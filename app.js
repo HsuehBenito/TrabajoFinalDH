@@ -3,10 +3,6 @@ const path = require('path');
 const app = express();
 
 app.get('', (req,res) =>{
-    res.send("Iniciardo"); 
-});
-
-app.get('/home', (req,res) =>{
     
     res.sendFile((__dirname + '/views/home.html'));
 });
@@ -17,6 +13,7 @@ app.get('/registro', (req,res) =>{
 
 app.use(express.static(path.join(__dirname, './public')));  
 
-app.listen(3002, () => {
+
+app.listen(process.env.PORT || 3002, () => {
     console.log("Servidor ON MAKINOLA");
 });
