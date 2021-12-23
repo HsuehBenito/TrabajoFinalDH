@@ -16,7 +16,7 @@ body {
 .logo {
     text-align: center;
     font-size: 90px;
-    color: #7B0505;
+    color: #56070C;
     margin: 0px 0px 30px 0px;
 
 }
@@ -27,7 +27,7 @@ body {
 .slogan1{
     text-align: center;
     font-size: 50px;
-    color: white;
+    color: black;
     padding: 10px 0px 5px 0px;
 }
 
@@ -37,8 +37,8 @@ body {
 
     text-align: center;
     background-color: white;
-    color: black;
-    font-size: 22px;
+    color: #deb887;
+    font-size: 15px;
     padding: 14px;
     border-radius: 26px;
     border: none;
@@ -46,14 +46,14 @@ body {
 }
 
 #instagram {
-    color: #30618A;
+    color: black;
     font-size: 50px;
     margin-right: 45px;
 }
 
 #facebook {
-    color: white;
-    background-color: blue;
+    color: black;
+    
     font-size: 45px;
     padding: 5px;
     
@@ -61,8 +61,8 @@ body {
 }
 
 #whatsapp {
-    color: white;
-    background-color: #25D366;
+    color: black;
+    
     font-size: 50px;
     border-radius: 40px;
     margin-left: 45px;
@@ -133,14 +133,15 @@ body {
 
 @media (min-width: 1200px) {
     body {
-        background-size: 117%;
+        background-size: 100%;
+        
     }
     .iconotlf {
         display: none;
     }
     .lupita{
         display: block;
-        margin: 35px 8px 0px -13px;
+        align-self: center;
     }
     .navegador{
         display: flex;
@@ -154,7 +155,8 @@ body {
     .navegador ul{
         list-style: none;
         padding: 0;
-        margin: 24px 0px 55px 0px;
+        margin: 0px 0px 0px 0px;
+        align-self: center;
         display: flex;
     }
     .navegador li{
@@ -162,8 +164,9 @@ body {
     }
     .navegador a{
         text-decoration: none;
-        font-size: 42px;;
-        color: whitesmoke;
+        font-size: 25px;;
+        color: black;
+        align-self: center;
     }
     .logo{
         font-size: 94px;
@@ -177,9 +180,9 @@ body {
         margin: 100px 0px 38px 0px;
     }
     #masInfo{
-        font-size: 62px;
-        width: 500px;
-        color: burlywood;
+        font-size: 40px;
+        width: 300px;
+        color: #deb887;
     }
 
     .footercito{
