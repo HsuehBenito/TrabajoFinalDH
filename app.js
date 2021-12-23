@@ -21,6 +21,11 @@ app.get('/producto', (req,res) =>{
     res.sendFile((__dirname + '/views/producto.html'));
 });
 
+app.get('/carrito', (req,res) =>{
+    
+    res.sendFile((__dirname + '/views/carrito.html'));
+});
+
 app.use(express.static(path.join(__dirname, './public')));  
 
 
