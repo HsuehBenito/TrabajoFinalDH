@@ -12,6 +12,9 @@ body {
 .order-md-2{
     background-image: -webkit-image-set("/img/");
 }
+.titulologin{
+  text-align: center;
+}
   a {
     -webkit-transition: .3s all ease;
     -o-transition: .3s all ease;
