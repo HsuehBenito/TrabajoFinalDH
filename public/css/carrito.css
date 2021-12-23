@@ -55,7 +55,7 @@
   
   
   .image {
-    margin-right: 0px;
+    margin-right: 15px;
     width: 69px;
     height: 69px;
     
@@ -95,7 +95,10 @@
     color: #43484D;
     font-weight: 300;
   }
-  
+  .botoncobro{
+    align-items: center;
+    margin-top: 20px;
+  }
    
   
   .minus-btn  {
