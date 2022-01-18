@@ -1,44 +1,8 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Registrate</title>
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600' rel='stylesheet' type='text/css'>
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
-    <link rel="stylesheet" href="css/formulario.css">
-    <link rel="stylesheet" href="css/style.css">    
-  </head>
+  <%- include('./partials/head') %>
   <body>
-    <header class = "headardo">
-        
-      <div class="headerTop">
-      
-          <h1 class = "logo">Alzacopas</h1>
-      
-          
-              <nav class = "navegador"> 
-                <ul class="lista">
-                  <li><a href="/carrito">Mis compras</a></li>
-                  <li><a href="/producto">Productos</a></li>
-                  <li><a href="/login">Ingresar</a></li>
-                  <li><a href="/registro">Registrarse</a></li>
-                  <li><a href="#">Sobre nosotros</a></li>
-              </ul>
-              
-              </nav>
-          
-              <div class="lupita">
-                  <button type="button" class="btn btn-light"><i class="fas fa-search"></i></button>
-              </div> 
-      
-              <div class="botonCelu">
-                <a href="#" class="iconotlf" >
-                    <i class="fas fa-bars"></i>
-                </a>
-            </div>
-      
-       
-  </div>  
-  </header>
+    <%- include('./partials/header') %>
     
   <div class="main-block">
     <form action="/" method="post">
@@ -51,7 +15,7 @@
           <div><label>Email*</label><input type="email" name="name" required></div>
           <div><label>Password*</label><input type="password" name="name" required></div>
           <div><label>Confirmar email*</label><input type="email" name="name" required></div>
-          <div><label>Confirmar contrasenia*</label><input type="password" name="name" required></div>
+          <div><label>Confirmar contraseña*</label><input type="password" name="name" required></div>
         </div>
       </fieldset>
       <fieldset>

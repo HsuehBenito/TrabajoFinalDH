@@ -6,9 +6,7 @@ body {
     color: #b3b3b3;
     font-weight: 300; }
   
-  h1, h2, h3, h4, h5, h6,
-  .h1, .h2, .h3, .h4, .h5, .h6 {
-    font-family: "Roboto", sans-serif; }
+  
 .order-md-2{
     background-image: -webkit-image-set("/img/");
 }

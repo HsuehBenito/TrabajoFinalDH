@@ -3,6 +3,7 @@ const path = require('path');
 const app = express();
 
 const mainRouter = require('./src/routes/mainRouter')
+const usersRouter = require('./src/routes/usersRouter')
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
@@ -13,6 +14,7 @@ app.use(express.static(path.join(__dirname, './public')));
 app.set('views', path.join(__dirname, './src/views'));
 
 app.use('/', mainRouter);
+app.use('/users', usersRouter);
 
 app.listen(process.env.PORT || 3002, () => {
     console.log("Servidor ON MAKINOLA");
