@@ -14,6 +14,12 @@ const controller = {
 	carrito: (req, res) => {
 		res.render('carrito');
 	},
+	crear: (req,res) => {
+		res.render('crear-producto')
+	},
+	editar: (req,res) => {
+		res.render('editar-producto')
+	}
 };
 
 module.exports = controller;
