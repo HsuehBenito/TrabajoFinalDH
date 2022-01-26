@@ -1,0 +1,14 @@
+[
+    {
+  "id": 1,
+  "nombre": "Agustin",
+  "apellido": "Nuniez",
+  "email": "Agustin@dh.com.ar",
+  "password": "123",
+  "telefono": "114055889407",
+  "imagen": "Agustin.jpg"
+    },
+    {
+        
+    }
+]
