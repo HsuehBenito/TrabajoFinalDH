@@ -3,6 +3,7 @@ const path = require('path');
 const productsFilePath = path.join(__dirname, '../data/productosBaseDatos.json');
 let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
+
 const controller = {
 	
 	login: (req, res) => {
@@ -32,11 +33,12 @@ const controller = {
                 break;
 			}
 		}
+		
 	
 			res.render('editar-producto',{producto: productoSeleccionado});
 		},
 		update: (req, res) => {
-
+			console.log('llegue')
 			let idProductoSeleccionado = req.params.id;
 			let datos = req.body;
 	
@@ -48,6 +50,7 @@ const controller = {
 					break;
 				}
 			}
+			
 	
 			fs.writeFileSync(productsFilePath, JSON.stringify(products,null,' '));
 	
@@ -64,7 +67,7 @@ const controller = {
 	
 			fs.writeFileSync(productsFilePath, JSON.stringify(products2,null,' '));
 	
-			res.redirect('producto');
+			res.redirect('/');
 	
 	
 		}
