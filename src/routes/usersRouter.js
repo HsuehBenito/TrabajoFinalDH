@@ -3,6 +3,7 @@ const router = express.Router();
 const multer = require('multer');
 
 const usersController = require('../controllers/usersController');
+const app = express();
 
 
 
@@ -35,6 +36,16 @@ router.put('/editar-producto/:id', usersController.update);
 // delete
 router.delete('/delete/:id', usersController.destroy);
 // multer
-router.post('/crear-producto', uploadFile.single('avatar'),usersController.store);
+app.post('/crear-producto', uploadFile.single('avatar'),usersController.store); (req, res) => {
+    console.log(req.file); //devuelve objeto con informacion del archivo
+    const file = req.file;
+    if (!file) {
+        const error = new Error("Por favor sube tu imagen")
+        error.httpStatusCode = 400
+        return next(error)
+    } //implementacion codigo error en caso de error al subir archivo
+    res.send(file)
+    res.redirect('/')
+}
 
 module.exports = router;
