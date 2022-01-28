@@ -70,7 +70,32 @@ const controller = {
 			res.redirect('/');
 	
 	
-		}
+		},
+		//a revisar por que define ids e invoca products, que joraca es producs? me parece que es para almacenar usuarios y no para la imagen(jc)
+		store: (req, res) => {
+
+			let nuevoID=(products[products.length-1].id)+1 
+	
+			let productoNuevo = {
+				id: nuevoID,
+				name: req.body.name,
+				description: req.body.description,
+				price: req.body.price,
+				discount: req.body.discount,
+				image: req.file.filename,
+				category: "in-sale"
+			}
+	
+	
+			products.push(productoNuevo)
+	
+			fs.writeFileSync(productsFilePath, JSON.stringify(products,null,' '));
+	
+			res.redirect('/');
+	
+	
+	
+		},
 };
 
 module.exports = controller;
