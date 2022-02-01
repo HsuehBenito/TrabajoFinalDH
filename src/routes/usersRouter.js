@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const multer = require('multer');
-
+const path = require('path');
 const usersController = require('../controllers/usersController');
 const app = express();
 
@@ -11,9 +11,8 @@ const multerDiskStorage = multer.diskStorage({
     destination: function(req, file, cb){
         cb(null, path.join(__dirname,'../../public/img'))
     },
-    filename:function(req, res, cb) {
-        let nombreImagen = Date.now() + path.extname(file.nombreOriginal);
-        cb(null, nombreImagen);
+    filename:function(req, file, cb) { //le cambiamos res a file
+        cb(null, Date.now() + path.extname(file.originalname))
     }
 });
 const uploadFile = multer({storage: multerDiskStorage});
@@ -31,12 +30,12 @@ router.get('/crear-producto', usersController.crear);
 router.get('/editar-producto/:id', usersController.edit);
 
 // crear-edit
-router.post('/crear-producto', usersController.crear);
-router.put('/editar-producto/:id', usersController.update);
+//router.post('/crear-producto', usersController.crear); lo comentamos para ver si es que pisaba y cagaba todo.
+router.put('/editar-producto/:id',uploadFile.single("avatar"), usersController.update); // agregamos uploadfile.single para ver si pega encima
 // delete
 router.delete('/delete/:id', usersController.destroy);
 // multer
-app.post('/crear-producto', uploadFile.single('avatar'),usersController.store); (req, res) => {
+router.post('/crear-producto', uploadFile.single('avatar'),usersController.store); (req, res) => {
     console.log(req.file); //devuelve objeto con informacion del archivo
     const file = req.file;
     if (!file) {

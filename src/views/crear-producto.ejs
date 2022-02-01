@@ -37,19 +37,14 @@
 						<label for="description" class="form-label">Descipción:</label>
 						<textarea name="description" id="description" class="form-input"></textarea>
 					</div>
-					<div class="col-12"> <!--boton para subir archivo -->
-						<input type="file" style="background-color: cornflowerblue; color:white; width: 350px; height: 20px;" name="imgproducto"></input>
-					</div>
-				
-					
-				</div>
-				<!--multer ojo que no se rompa. -->
-				<form action="/users/crear-producto" method="POST" enctype="multipart/form-data" >
-					<!-- contenido formulario -->
-					<!--<input type="file" name="archivo"/>-->
-	  			</form>
-				  <div class="col-12">
-					<button type="submit" class="buy-now-button">Guardar producto</button>
+
+					<div class="col-12">
+                        <input type="file" style="background-color: cornflowerblue; color:white; width: 400px; height: 20px;" name="avatar"></input>
+                    </div>
+
+                    <div class="col-12">
+                        <button type="submit" class="buy-now-button">Guardar producto</button>
+                    </div>
 				
 				</div>
 			</form>
