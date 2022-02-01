@@ -111,6 +111,22 @@ body {
     font-size: 20px;
     text-align: center;
 }
+/* centrando los botones de detail */
+.button-container{
+    height: 100px;
+  position: relative;
+}
+.center{
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.edit{
+    margin-bottom: 4px;
+}
 
 /* tablet */ 
 
@@ -189,4 +205,5 @@ body {
         font-size: 35px;
         margin-top: 150px;
     }
+    
 }
