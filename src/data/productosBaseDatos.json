@@ -1,12 +1,12 @@
 [
  {
   "id": 1,
-  "name": "Vino tinto",
+  "name": "Cabernet Sauvignon",
   "price": "1300",
   "discount": "10",
   "category": "in-sale",
   "description": "Vino Tinto Reserva de color violáceo con reflejos azules muy profundos de gran intensidad, con una exquisita combinación de aromas a ciruelas y frutillas combinada con chocolate y vainilla aportados por el roble. En boca entrada sedosa, taninos suaves y largo final de boca",
-  "image": "red-wine.jpg"
+  "image": "cabernet.jpg"
  },
  {
   "id": 2,
@@ -19,12 +19,12 @@
  },
  {
     "id": 3,
-    "name": "Vino frutal artesanal",
+    "name": "Pinot Noir",
     "price": "1500",
     "discount": "5",
     "category": "in-sale",
-    "description": "Vino delicado que recuerda a diferentes aromas de plantas, al aroma propio de la uva con que ha sido elaborado o al de algunas otras frutas.",
-    "image": "vinagre.jpg"
+    "description": "El carácter y la personalidad de un vino representan el terroir y la mano del hombre que han influido en esa creación. Este es un Pinot Noir que expresa la experiencia de la familia Arizu elaborando esta elegante cepa en Mendoza y que busca expresar todas las características del suelo y el clima de La Consulta. Tiene muy buen color, con ciertos tintes violáceos muy atractivos a la vista. Sus aromas denotan una excelente tipicidad: se perciben frutas rojas de baya chica y notas a clavo de olor y algo de mermelada.",
+    "image": "pinot.jpg"
    },
  {
   "id": 4,
