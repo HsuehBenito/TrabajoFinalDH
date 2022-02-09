@@ -5,17 +5,18 @@
     <%- include('./partials/header') %>
     
   <div class="main-block">
-    <form action="/" method="post">
+    <form action="/users/registro" method="post">
       <h1>Crea tu cuenta</h1>
       <fieldset>
         <legend>
           <h3>Detalles de la cuenta</h3>
         </legend>
         <div  class="account-details">
-          <div><label>Email*</label><input type="email" name="name" required></div>
-          <div><label>Password*</label><input type="password" name="name" required></div>
-          <div><label>Confirmar email*</label><input type="email" name="name" required></div>
-          <div><label>Confirmar contraseña*</label><input type="password" name="name" required></div>
+          <div><label>Email*</label><input type="email" name="email" required></div>
+          <div><label>Confirmar email*</label><input type="email" name="email" required></div>
+
+          <div><label>Password*</label><input type="password" name="password" required></div>
+          <div><label>Confirmar contraseña*</label><input type="password" name="password" required></div>
         </div>
       </fieldset>
       <fieldset>
@@ -25,28 +26,28 @@
         <div  class="personal-details">
           <div>
             <div><label>Nombre*</label><input type="text" name="name" required></div>
-            <div><label>Telefono*</label><input type="tel" name="name" required></div>
-            <div><label>Calle</label><input type="text" name="name"></div>
-            <div><label>Ciudad*</label><input type="text" name="name" required></div>
+            <div><label>Telefono*</label><input type="tel" name="telefono" required></div>
+            <div><label>Calle</label><input type="text" name="direccion"></div>
+            <div><label>Ciudad*</label><input type="text" name="ciudad" required></div>
            
            
           </div>
           <div>
             <div>
               <label>Genero*</label>
-              <div class="gender">
-                <input type="radio" value="none" id="male" name="gender" required/>
+              <div class="gender" >
+                <input type="radio" value="masculino" id="male" name="gender" required/>
                 <label for="male" class="radio">Masculino</label>
-                <input type="radio" value="none" id="female" name="gender" required/>
+                <input type="radio" value="femenino" id="female" name="gender" required/>
                 <label for="female" class="radio">Femenino</label>
-                <input type="radio" value="none" id="other" name="gender" required/>
-                <label for="female" class="radio">Otros</label> 
+                <input type="radio" value="otros" id="other" name="gender" required/>
+                <label for="female" class="radio">Sin especificar</label> 
               </div>
             </div>
             <div class="birthdate">
               <label>Fecha de nacimiento*</label>
               <div class="bdate-block">
-                <select class="day" required>
+                <select class="day" name='nacimiento'required>
                   <option value=""></option>
                   <option value="01">01</option>
                   <option value="02">02</option>
@@ -80,8 +81,7 @@
                   <option value="30">30</option>
                   <option value="31">31</option>
                 </select>
-                <select class="mounth" required>
-                  <option value=""></option>
+                <select class="month" name='month'required>
                   <option value="January">Enero</option>
                   <option value="February">Febrero</option>
                   <option value="March">Marzo</option>
@@ -95,7 +95,7 @@
                   <option value="November">Noviembre</option>
                   <option value="December">Deciembre</option>
                 </select>
-                <input type="text" name="name" required>
+                <input type="number" name="year" required>
               </div>
             </div>
             

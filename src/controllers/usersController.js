@@ -1,7 +1,9 @@
 const fs = require('fs');
 const path = require('path');
 const productsFilePath = path.join(__dirname, '../data/productosBaseDatos.json');
+const usersFilePath = path.join(__dirname, '../data/usuarios.json');
 let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+let users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 
 
 const controller = {
@@ -13,6 +15,35 @@ const controller = {
 	formulario: (req, res) => {
 		res.render('formulario');
 	},
+	userstore: (req, res) => {
+
+		let nuevoID=(users[users.length-1].id)+1 
+
+		let usersNuevo = {
+			id: nuevoID,
+			name: req.body.name,
+			email: req.body.email,
+			password: req.body.password,
+			telefono: req.body.telefono,
+			direccion: req.body.direccion,
+			ciudad: req.body.ciudad,
+			gender : req.body.gender,
+			nacimiento : req.body.nacimiento,
+			month : req.body.month,
+			year : req.body.year,
+		}
+
+
+		users.push(usersNuevo)
+
+		fs.writeFileSync(usersFilePath, JSON.stringify(users,null,' '));
+
+		res.redirect('/');
+
+
+
+	},
+	
 	
 	carrito: (req, res) => {
 		res.render('carrito');

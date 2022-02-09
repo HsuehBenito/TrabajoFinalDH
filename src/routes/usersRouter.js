@@ -21,6 +21,7 @@ const uploadFile = multer({storage: multerDiskStorage});
 router.get('/login', usersController.login);
 
 router.get('/registro', usersController.formulario);
+router.post('/registro', usersController.userstore);
 
 router.get('/carrito', usersController.carrito);
 

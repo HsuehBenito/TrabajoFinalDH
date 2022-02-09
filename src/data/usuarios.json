@@ -1,14 +1,48 @@
 [
-    {
+ {
   "id": 1,
   "nombre": "Agustin",
   "apellido": "Nuniez",
   "email": "Agustin@dh.com.ar",
   "password": "123",
-  "telefono": "114055889407",
-  "imagen": "Agustin.jpg"
-    },
-    {
-        
-    }
+  "telefono": "114055889407"
+ },
+ {
+  "id": 2,
+  "name": "Benito Hsueh",
+  "email": [
+   "bhsueh94@gmail.com",
+   "bhsueh94@gmail.com"
+  ],
+  "password": [
+   "123",
+   "asd"
+  ],
+  "telefono": "01137562228",
+  "direccion": "Acevedo 131",
+  "ciudad": "Buenos Aires",
+  "gender": "none",
+  "nacimiento": "14",
+  "month": "January",
+  "year": "1997"
+ },
+ {
+  "id": 3,
+  "name": "Benito Hsueh",
+  "email": [
+   "bhsueh94@gmail.com",
+   "bhsueh94@gmail.com"
+  ],
+  "password": [
+   "asdasd",
+   "asdasd"
+  ],
+  "telefono": "01137562228",
+  "direccion": "Acevedo 131",
+  "ciudad": "Buenos Aires",
+  "gender": "masculino",
+  "nacimiento": "01",
+  "month": "January",
+  "year": "12341"
+ }
 ]
