@@ -18,14 +18,14 @@
   "image": "malbec.jpg"
  },
  {
-    "id": 3,
-    "name": "Pinot Noir",
-    "price": "1500",
-    "discount": "5",
-    "category": "in-sale",
-    "description": "El carácter y la personalidad de un vino representan el terroir y la mano del hombre que han influido en esa creación. Este es un Pinot Noir que expresa la experiencia de la familia Arizu elaborando esta elegante cepa en Mendoza y que busca expresar todas las características del suelo y el clima de La Consulta. Tiene muy buen color, con ciertos tintes violáceos muy atractivos a la vista. Sus aromas denotan una excelente tipicidad: se perciben frutas rojas de baya chica y notas a clavo de olor y algo de mermelada.",
-    "image": "pinot.jpg"
-   },
+  "id": 3,
+  "name": "Pinot Noir",
+  "price": "1500",
+  "discount": "5",
+  "category": "in-sale",
+  "description": "El carácter y la personalidad de un vino representan el terroir y la mano del hombre que han influido en esa creación. Este es un Pinot Noir que expresa la experiencia de la familia Arizu elaborando esta elegante cepa en Mendoza y que busca expresar todas las características del suelo y el clima de La Consulta. Tiene muy buen color, con ciertos tintes violáceos muy atractivos a la vista. Sus aromas denotan una excelente tipicidad: se perciben frutas rojas de baya chica y notas a clavo de olor y algo de mermelada.",
+  "image": "pinot.jpg"
+ },
  {
   "id": 4,
   "name": "Cuarto Vino",
@@ -35,14 +35,13 @@
   "description": "Vino de color amarillo con reflejos ligeramente verdosos. Brillante y límpido, de mediana intensidad. En nariz presenta aromas a flores blancas, manzana verde y duraznos en almibar. En boca es fresco, delicadamente dulce, de textura suave y agradable final.",
   "image": "vinoblanco.jpg"
  },
- 
  {
-  "id": 5,
-  "name": "VINITO",
-  "description": "123",
-  "price": "111111",
-  "discount": "90",
-  "image": "1643676341673.png",
-  "category": "in-sale"
+  "id": 7,
+  "name": "Cuarto Vino",
+  "price": "1000",
+  "discount": "20",
+  "category": "in-sale",
+  "description": "Vino de color amarillo con reflejos ligeramente verdosos. Brillante y límpido, de mediana intensidad. En nariz presenta aromas a flores blancas, manzana verde y duraznos en almibar. En boca es fresco, delicadamente dulce, de textura suave y agradable final.",
+  "image": "peron.png"
  }
 ]

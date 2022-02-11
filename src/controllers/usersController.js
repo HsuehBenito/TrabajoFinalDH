@@ -91,18 +91,32 @@ const controller = {
 		destroy : (req, res) => {
 
 			let idProductoSeleccionado = req.params.id;
-	
+        	let productoSeleccionado;
+
+        	for (let p of products){
+
+            if(p.id==idProductoSeleccionado){
+                productoSeleccionado=p;
+                break;
+            }
+        }
+			
 			let products2 = products.filter(function(element){
+				
 				return element.id!=idProductoSeleccionado;
 			})
-	
+			fs.unlink(path.join(__dirname, '../../public/img/' + productoSeleccionado.image), (error) => {
+				(console.log(error))
+			
+			});
+
 			fs.writeFileSync(productsFilePath, JSON.stringify(products2,null,' '));
 	
 			res.redirect('/');
 	
 	
 		},
-		//a revisar por que define ids e invoca products, que joraca es producs? me parece que es para almacenar usuarios y no para la imagen(jc)
+		
 		store: (req, res) => {
 
 			let nuevoID=(products[products.length-1].id)+1 
