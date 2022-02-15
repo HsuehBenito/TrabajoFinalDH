@@ -16,16 +16,24 @@ const multerDiskStorage = multer.diskStorage({
     }
 });
 const uploadFile = multer({storage: multerDiskStorage});
-
-
+const validations = require('../middlewares/validateRegisterMiddleware');
+const guestMiddleware = require('../middlewares/guestMiddleware');
+const authMiddleware = require('../middlewares/authMiddleware');
+//get form login
 router.get('/login', usersController.login);
-
-router.get('/registro', usersController.formulario);
-router.post('/registro', usersController.userstore);
+//procesar login
+router.post('/login', usersController.loginPost);
+//get registro 
+router.get('/registro',guestMiddleware, usersController.formulario);
+//procesar registro
+router.post('/registro', validations, usersController.userstore);
 
 router.get('/carrito', usersController.carrito);
 
-
+// Perfil de Usuario
+router.get('/profile', authMiddleware, usersController.profile);
+//logout
+router.get('/logout/', usersController.logout);
 
 router.get('/crear-producto', usersController.crear);
 router.get('/editar-producto/:id', usersController.edit);

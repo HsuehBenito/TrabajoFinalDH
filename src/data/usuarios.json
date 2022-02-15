@@ -1,14 +1,6 @@
 [
  {
   "id": 1,
-  "nombre": "Agustin",
-  "apellido": "Nuniez",
-  "email": "Agustin@dh.com.ar",
-  "password": "123",
-  "telefono": "114055889407"
- },
- {
-  "id": 2,
   "name": "Benito Hsueh",
   "email": [
    "bhsueh94@gmail.com",
@@ -27,22 +19,54 @@
   "year": "1997"
  },
  {
-  "id": 3,
-  "name": "Benito Hsueh",
+  "id": 2,
+  "name": "Agus",
   "email": [
-   "bhsueh94@gmail.com",
-   "bhsueh94@gmail.com"
+   "agusDH@gmail.com",
+   "agusDH@gmail.com"
   ],
   "password": [
-   "asdasd",
-   "asdasd"
+   "123",
+   "123"
   ],
-  "telefono": "01137562228",
-  "direccion": "Acevedo 131",
-  "ciudad": "Buenos Aires",
+  "telefono": "12345678",
+  "direccion": "jujuy 123",
+  "ciudad": "jujuy",
   "gender": "masculino",
-  "nacimiento": "01",
+  "nacimiento": "21",
+  "month": "February",
+  "year": "23123"
+ },
+ {
+  "id": 3,
+  "name": "Fabian Weich",
+  "email": [
+   "agusDH@gmail.com",
+   "agusDH@gmail.com"
+  ],
+  "password": [
+   "123",
+   "123"
+  ],
+  "telefono": "45643715",
+  "direccion": "Argentina ",
+  "ciudad": "12323123",
+  "gender": "masculino",
+  "nacimiento": "21",
+  "month": "February",
+  "year": "2134"
+ },
+ {
+  "id": 4,
+  "name": "Juan",
+  "email": "juancito@gmail.com",
+  "password": "$2a$10$AE0HjbiQilWc0BYBm.Q2Z.Cwam4Kj/24KxJCSRwK2vhHmQeCNnThS",
+  "telefono": "1234675",
+  "direccion": "Acatras 123",
+  "ciudad": "BS AS",
+  "gender": "masculino",
+  "nacimiento": "17",
   "month": "January",
-  "year": "12341"
+  "year": "1234"
  }
 ]
