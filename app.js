@@ -31,4 +31,4 @@ const userRoutes = require('./src/routes/userRoutes');
 app.use('/', mainRoutes);
 app.use('/user', userRoutes);
 
-app.listen(3003, () => console.log('Servidor levantado en el puerto 3000'));
+app.listen(3003, () => console.log('Servidor levantado en el puerto 3003'));

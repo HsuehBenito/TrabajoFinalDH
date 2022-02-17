@@ -6,5 +6,13 @@
   "password": "$2a$10$905AogoqWmCMLUIFhYXJGu5m4UwKq3/cAghvEl32sgxhoEOQxz1A2",
   "country": "Argentina",
   "avatar": "1645131099660_img.jpg"
+ },
+ {
+  "id": 2,
+  "fullName": "Lionel",
+  "email": "lionelel10delascaloneta@gmail.com",
+  "password": "$2a$10$S/GfnAh7GN35I4HENTLWReU4bKc7eIdjUgvc0Jzy0c2hxaI/lRYRi",
+  "country": "Argentina",
+  "avatar": "1645131292106_img.jpg"
  }
 ]
