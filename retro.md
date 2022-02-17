@@ -1,6 +1,0 @@
-- Trabajar en Equipo:
-- Sacarle provecho a la diversidad de conocimientos: Un equipo de trabajo donde hay más de una persona es más fácil  operar con mayor grado de eficiencia. Son varias las personalidades e intereses de los usuarios entonces esto hace que existan y convivan.
-- Coordinar meetings semanales para actualizar en qué situación está cada uno con sus tareas.
-- Dejar perder el contacto por más de 3 días.
--  Motiva la responsabilidad y el compromiso mutuo..
-- Que uno solo no tome la decisión de las tareas a realizar, que exista el debate..

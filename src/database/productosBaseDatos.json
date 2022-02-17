@@ -34,14 +34,5 @@
   "category": "in-sale",
   "description": "Vino de color amarillo con reflejos ligeramente verdosos. Brillante y límpido, de mediana intensidad. En nariz presenta aromas a flores blancas, manzana verde y duraznos en almibar. En boca es fresco, delicadamente dulce, de textura suave y agradable final.",
   "image": "vinoblanco.jpg"
- },
- {
-  "id": 7,
-  "name": "Cuarto Vino",
-  "price": "1000",
-  "discount": "20",
-  "category": "in-sale",
-  "description": "Vino de color amarillo con reflejos ligeramente verdosos. Brillante y límpido, de mediana intensidad. En nariz presenta aromas a flores blancas, manzana verde y duraznos en almibar. En boca es fresco, delicadamente dulce, de textura suave y agradable final.",
-  "image": "peron.png"
  }
 ]

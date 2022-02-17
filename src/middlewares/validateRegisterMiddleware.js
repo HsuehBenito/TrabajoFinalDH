@@ -2,20 +2,15 @@ const path = require('path');
 const { body } = require('express-validator');
 
 module.exports = [
-	body('name').notEmpty().withMessage('Tienes que escribir un nombre'),
+	body('fullName').notEmpty().withMessage('Tienes que escribir un nombre'),
 	body('email')
 		.notEmpty().withMessage('Tienes que escribir un correo electrónico').bail()
 		.isEmail().withMessage('Debes escribir un formato de correo válido'),
 	body('password').notEmpty().withMessage('Tienes que escribir una contraseña'),
-	body('calle').notEmpty().withMessage('Tienes que ingresar una calle con su altura'),
-	body('ciudad').notEmpty().withMessage('Tienes que elegir una ciudad'),
-	body('genero').notEmpty().withMessage('Tienes elegir un genero'),
-	body('nacimiento').notEmpty().withMessage('Tienes elegir una fecha'),
-	body('mes').notEmpty().withMessage('Tienes elegir un mes'),
-	body('year').notEmpty().withMessage('Tienes que seleccionar un año'),
+	body('country').notEmpty().withMessage('Tienes que elegir un país'),
 	body('avatar').custom((value, { req }) => {
 		let file = req.file;
-		let acceptedExtensions = ['.jpg', '.png' ];
+		let acceptedExtensions = ['.jpg', '.png', '.gif'];
 
 		if (!file) {
 			throw new Error('Tienes que subir una imagen');

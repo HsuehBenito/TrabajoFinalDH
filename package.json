@@ -1,21 +1,24 @@
 {
-  "name": "trabajofinaldh",
+  "name": "register-login",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon -L app.js -e ejs,js"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
-    "cookie-parser": "^1.4.6",
-    "ejs": "^3.1.6",
-    "express": "^4.17.2",
+    "cookie-parser": "^1.4.5",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
     "express-session": "^1.17.2",
-    "express-validator": "^6.14.0",
+    "express-validator": "^6.8.1",
+    "file-system": "^2.2.2",
     "method-override": "^3.0.0",
-    "multer": "^1.4.4"
+    "multer": "^1.4.2"
   }
 }
