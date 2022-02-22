@@ -27,12 +27,11 @@
   "image": "pinot.jpg"
  },
  {
-  "id": 6,
-  "name": "lionelcito",
-  "description": "qseqwe",
-  "price": "123123",
-  "discount": "123123",
-  "image": "1645132493893_img.jpg",
+  "id": 4,
+  "name": "",
+  "description": "",
+  "price": "",
+  "discount": "12312312",
   "category": "in-sale"
  }
 ]

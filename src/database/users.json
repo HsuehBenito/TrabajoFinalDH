@@ -14,5 +14,13 @@
   "password": "$2a$10$S/GfnAh7GN35I4HENTLWReU4bKc7eIdjUgvc0Jzy0c2hxaI/lRYRi",
   "country": "Argentina",
   "avatar": "1645131292106_img.jpg"
+ },
+ {
+  "id": 3,
+  "fullName": "benito",
+  "email": "benito@gmail.com",
+  "password": "$2a$10$dFjni/kxbuAyXLuQ1y7Qp.TCt4gygNbv6zL6nLEB78tcazTOpVElu",
+  "country": "Argentina",
+  "avatar": "1645571952660_img.jpg"
  }
 ]

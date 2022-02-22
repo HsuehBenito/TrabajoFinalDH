@@ -122,15 +122,24 @@ const controller = {
 	
 			for (let p of products){
 				if(p.id==idProductoSeleccionado){
+					productoSeleccionado=p;
+					fs.unlink(path.join(__dirname, '../../public/img/' + p.image), (error) => {
+						(console.log(error))
+					
+					});
 					p.name = datos.name;
 					p.price = datos.price;
 					p.description = datos.description;
+					p.image = datos.image;
+					
 					break;
 				}
 			}
 			
 	
 			fs.writeFileSync(productsFilePath, JSON.stringify(products,null,' '));
+
+			
 	
 			res.redirect('/');
 	
