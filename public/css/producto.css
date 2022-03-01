@@ -182,17 +182,17 @@ body {
   display: block;
 }
 
-.info-inner .p-name {
+.info-inner .p-name p{
   font-family: 'PT Sans', sans-serif;
   font-size: 18px;
-  color: #252525;
+  color: #0a0909;
 }
 
 .info-inner .p-company {
   font-family: 'Lato', sans-serif;
   font-size: 12px;
   text-transform: uppercase;
-  color: #8c8c8c;
+  color: #463f3f;
 }
 
 .a-size {
@@ -210,7 +210,7 @@ body {
   width: 100%;
   bottom: -20px;
   font-family: 'PT Sans', sans-serif;
-  color: #828282;
+  color: #3b3939;
   opacity: 0;
 }
 

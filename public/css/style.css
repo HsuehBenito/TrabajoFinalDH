@@ -13,7 +13,10 @@ body {
     
     
 }
-.logo {
+.logo{
+    align-self: center;
+}
+.logo a{
     text-align: center;
     font-size: 90px;
     color: #56070C;
@@ -27,7 +30,7 @@ body {
 .slogan1{
     text-align: center;
     font-size: 50px;
-    color: black;
+    color: rgb(90, 90, 90);
     padding: 10px 0px 5px 0px;
 }
 
@@ -164,27 +167,39 @@ body {
         justify-content: space-between;
     }
     .headerTop {
+        background-color: aliceblue;
         justify-content: space-around;
         display: flex;
         flex-direction: row;
     }
     .navegador ul{
         list-style: none;
-        padding: 0;
+        padding: 5px;
         margin: 0px 0px 0px 0px;
         align-self: center;
         display: flex;
+        
     }
-    .navegador li{
-        margin: 0 15px;
+    
+    
+    .navegador li:hover {
+        background-color: lightslategray;
+        border-radius: 40px;
     }
-    .navegador a{
+    .navegador li {
+        align-self: center;
+        padding: 2rem;
+        transition: 0.5s;
+        
+    }
+    .navegador li a{
         text-decoration: none;
-        font-size: 25px;;
+        font-size: 19px;
         color: black;
         align-self: center;
+        
     }
-    .logo{
+    .logo a{
         font-size: 94px;
         margin-left: 21px;
         text-align: left;
@@ -202,8 +217,11 @@ body {
     }
 
     .footercito{
-        font-size: 35px;
+        font-size: 20px;
         margin-top: 150px;
+        color:black;
+        background-color: grey;
+        opacity: 70%;
     }
     
 }

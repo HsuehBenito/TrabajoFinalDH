@@ -32,6 +32,7 @@
   "description": "",
   "price": "",
   "discount": "12312312",
-  "category": "in-sale"
+  "category": "in-sale",
+  "image": "fernet.jpg"
  }
 ]
