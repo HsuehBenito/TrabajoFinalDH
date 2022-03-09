@@ -5,9 +5,9 @@ const {
 	validationResult
 } = require('express-validator');
 
-//const User = require('../models/User');
+const User = require('../database/users.json');
 const productsFilePath = path.join(__dirname, '../database/productosBaseDatos.json');
-//const db = require('../database/models');
+//const db = require('../database/models/'); esto rompe todo.
 const controller = {
 	login: (req, res) => {
 		return res.render('login');
