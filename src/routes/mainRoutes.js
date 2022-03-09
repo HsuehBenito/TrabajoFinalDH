@@ -5,7 +5,7 @@ const mainController = require('../controllers/mainController');
 
 router.get('/', mainController.home);
 router.get('/crear-producto', mainController.home); 
-router.get('/producto', mainController.producto); 
+router.get('/producto', mainController.index); 
 router.get('/detail/:id', mainController.detail);
 
 module.exports = router;

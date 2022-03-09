@@ -4,7 +4,7 @@ const cookies = require('cookie-parser');
 const methodOverride = require('method-override');
 const app = express();
 const path = require('path');
-const userLoggedMiddleware = require('./src/middlewares/userLoggedMiddleware');
+//const userLoggedMiddleware = require('./src/middlewares/userLoggedMiddleware');
 
 app.use(session({
 	secret: "Shhh, It's a secret",
@@ -14,7 +14,7 @@ app.use(session({
 
 app.use(cookies());
 
-app.use(userLoggedMiddleware);
+//app.use(userLoggedMiddleware);
 
 app.use(express.urlencoded({ extended: false }));
 

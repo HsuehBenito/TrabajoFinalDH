@@ -2,7 +2,7 @@ module.exports= {
   "development": {
     "username": "messi",
     "password": "messiel10",
-    "database": "messi_dh",
+    "database": "messi_dh10",
     "host":  "mysql-messi.alwaysdata.net",
     "dialect": "mysql",
     "port": 3306

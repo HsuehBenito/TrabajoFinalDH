@@ -1,27 +1,26 @@
-function categoriasData(sequelize, Datatypes){
+// function categoriasData(sequelize, Datatypes){
 
-    alias = 'categorias';
+//     alias = 'categorias';
     
-    cols = {
-      id: {type: Datatypes.INTEGER, primaryKey: true, autoIncrement: true},
-      id_productos:{type: Datatypes.INTEGER},
-      nombre: {type: Datatypes.STRING(255)},
-    }
+//     cols = {
+//       id: {type: Datatypes.INTEGER, primaryKey: true, autoIncrement: true},
+//       nombre: {type: Datatypes.STRING(255)},
+//     }
     
-    config = {camelCase: false, timestamps: false}; 
+//     config = {camelCase: false, timestamps: false}; 
     
-    const categorias = sequelize.define(alias,cols,config)
+//     const categorias = sequelize.define(alias,cols,config)
     
-    categorias.associate = function (modelos){
+//     categorias.associate = function (modelos){
     
-        categorias.belongsToMany(modelos.productos, {   
-            as: "productos",
-            foreignKey: "id_productos"
-          });
-    }
+//         categorias.hasMany(modelos.productos, {   
+//             as: "productos",
+//             foreignKey: "id_categorias"
+//           });
+//     }
     
     
-    return categorias;
+//     return categorias;
     
-    }
-    module.exports = categoriasData;
+//     }
+//     module.exports = categoriasData;

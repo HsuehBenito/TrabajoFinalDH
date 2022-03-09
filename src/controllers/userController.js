@@ -5,9 +5,9 @@ const {
 	validationResult
 } = require('express-validator');
 
-const User = require('../models/User');
+//const User = require('../models/User');
 const productsFilePath = path.join(__dirname, '../database/productosBaseDatos.json');
-let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+//const db = require('../database/models');
 const controller = {
 	login: (req, res) => {
 		return res.render('login');
@@ -175,28 +175,29 @@ const controller = {
 		
 		store: (req, res) => {
 
-			let nuevoID=(products[products.length-1].id)+1 
+
+    		db.productos.create(
+    	{ 
+			nombre:  req.body.nombre,
+			precio:  req.body.precio,
+			descripcion: req.body.descripcion,
+			blend: req.body.blend,
+			cosecha: req.body.cosecha,
+			volumen: req.body.volumen,
+			stock: req.body.stock,
+
+    	}
+   	 	)
+    	.then((resultados)  => { 
+        res.redirect('/producto');
+     	});
+
+
+    	},
 	
-			let productoNuevo = {
-				id: nuevoID,
-				name: req.body.name,
-				description: req.body.description,
-				price: req.body.price,
-				discount: req.body.discount,
-				image: req.file.filename,
-				category: "in-sale"
-			}
+		
 	
 	
-			products.push(productoNuevo)
-	
-			fs.writeFileSync(productsFilePath, JSON.stringify(products,null,' '));
-	
-			res.redirect('/');
-	
-	
-	
-		},
 }
 
 module.exports = controller;

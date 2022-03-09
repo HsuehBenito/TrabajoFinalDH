@@ -9,11 +9,6 @@ const controller = {
 		
 	},
 
-	producto: (req, res) => {
-		
-		products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-		res.render('producto',{p: products});
-	},
 	detail: (req, res) => {
 
         let idProductoSeleccionado = req.params.id;
@@ -28,6 +23,38 @@ const controller = {
         }
 
         res.render('detail',{producto: productoSeleccionado});
+    },
+    
+    index: (req, res) => {
+
+        db.productos.findAll()
+        .then((productos) =>{
+
+            let listaProductos=[];
+
+            for (p of productos){
+
+                
+                let objaux={
+                    nombre:  p.nombre,
+                    precio:  p.precio,
+                    descripcion: p.descripcion,
+                    blend: p.blend,
+                    cosecha: p.cosecha,
+                    
+                }
+
+                listaProductos.push(objaux);
+
+            }
+
+            console.log("ver: ", listaProductos);
+
+            res.render('producto',{AllProductos: listaProductos});
+
+        });
+
+
     },
 	
 };
