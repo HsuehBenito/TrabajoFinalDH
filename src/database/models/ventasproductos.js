@@ -1,27 +1,27 @@
-function ventasproductosData(sequelize, Datatypes){
+// function ventas_productosData(sequelize, Datatypes){
 
-    alias = 'ventasproductos';
+//     alias = 'ventas_productos';
     
-    cols = {
-      id: {type: Datatypes.INTEGER, primaryKey: true, autoIncrement: true},
-      id_productos:{type: Datatypes.INTEGER},
-      id_ventas:{type: Datatypes.INTEGER},
-      cantidad: {type: Datatypes.INTEGER},
-    }
+//     cols = {
+//       id: {type: Datatypes.INTEGER, primaryKey: true, autoIncrement: true},
+//       id_productos:{type: Datatypes.INTEGER},
+//       id_ventas:{type: Datatypes.INTEGER},
+//       cantidad: {type: Datatypes.INTEGER},
+//     }
     
-    config = {camelCase: false, timestamps: false}; 
+//     config = {camelCase: false, timestamps: false}; 
     
-    const ventasproductos = sequelize.define(alias,cols,config)
+//     const ventasproductos = sequelize.define(alias,cols,config)
     
-    ventasproductos.associate = function (modelos){
+//     ventasproductos.associate = function (modelos){
     
         
     
     
-    }
+//     }
     
     
-    return ventasproductos;
+//     return ventas_productos;
     
-    }
-    module.exports = ventasproductosData;
+//     }
+//     module.exports = ventas_productosData;

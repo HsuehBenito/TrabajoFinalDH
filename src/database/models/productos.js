@@ -14,7 +14,7 @@ function productosData(sequelize, Datatypes){
       volumen: {type: Datatypes.STRING(255)},
       descripcion: {type: Datatypes.STRING(255)},
       stock: {type: Datatypes.INTEGER(255)},
-      categorias_id: {type: Datatypes.INTEGER}, 
+      id_categorias: {type: Datatypes.INTEGER}, 
     }
     
     config = {camelCase: false, timestamps: false}; 
@@ -24,18 +24,21 @@ function productosData(sequelize, Datatypes){
     productos.associate = function (modelos){
     
         productos.belongsTo(modelos.administrador, {   
-        as: "administrador",
-        foreignKey: "id_administrador"
-        });
-    
+          as: "administrador",
+          foreignKey: "id_administrador"
+          });
+        productos.belongsTo(modelos.categorias, {   
+          as: "categorias",
+          foreignKey: "id_categorias"
+          });
     
       
-      productos.belongsToMany(modelos.ventas, {
-        as: "ventas",
-        through: "ventasproductos",   // tabla intermedia
-        foreignKey: "productos_id",  // es el FK del modelo en el que estas (en la tabla intermedia de la bd)
-        otherKey: "ventas_id",    // es el FK del otro modelo (en la tabla intermedia de la bd)
-        timestamps: false
+        productos.belongsToMany(modelos.ventas, {
+          as: "ventas",
+          through: "ventas_productos",   // tabla intermedia
+          foreignKey: "id_productos",  // es el FK del modelo en el que estas (en la tabla intermedia de la bd)
+          otherKey: "id_ventas",    // es el FK del otro modelo (en la tabla intermedia de la bd)
+          timestamps: false
        });
     
     

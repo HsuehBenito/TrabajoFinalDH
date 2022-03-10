@@ -22,9 +22,9 @@ function ventasData(sequelize, Datatypes){
     
       ventas.belongsToMany(modelos.productos, {
             as: "ventas",
-            through: "ventasproductos",   // tabla intermedia
-            foreignKey: "ventas_id",  // es el FK del modelo en el que estas (en la tabla intermedia de la bd)
-            otherKey: "productos_id",  // es el FK del otro modelo (en la tabla intermedia de la bd)
+            through: "ventas_productos",   // tabla intermedia
+            foreignKey: "id_ventas",  // es el FK del modelo en el que estas (en la tabla intermedia de la bd)
+            otherKey: "id_productos",  // es el FK del otro modelo (en la tabla intermedia de la bd)
             timestamps: false
       });
     

@@ -19,9 +19,9 @@ function adminData(sequelize, Datatypes){
 
     administrador.associate = function (modelos){
 
-        administrador.belongsTo(modelos.genres, {   
-        as: "generos",
-        foreignKey: "genre_id"
+        administrador.hasMany(modelos.productos, {   
+        as: "productos",
+        foreignKey: "id_administrador"
       });
     }
 
