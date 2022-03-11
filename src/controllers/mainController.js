@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const productsFilePath = path.join(__dirname, '../database/productosBaseDatos.json');
 let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-
+const db = require('../database/models/')
 const controller = {
 	home: (req, res) => {
 		res.render('home');
@@ -51,8 +51,11 @@ const controller = {
             console.log("ver: ", listaProductos);
 
             res.render('producto',{AllProductos: listaProductos});
-
+            
+        }).catch(error => {
+            console.log(error)
         });
+        
 
 
     },

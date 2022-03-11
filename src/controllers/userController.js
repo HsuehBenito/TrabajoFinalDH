@@ -7,7 +7,8 @@ const {
 
 const User = require('../database/users.json');
 const productsFilePath = path.join(__dirname, '../database/productosBaseDatos.json');
-//const db = require('../database/models/'); esto rompe todo.
+const db = require('../database/models/');
+const { generateId } = require('../database/modelos-user/user');
 const controller = {
 	login: (req, res) => {
 		return res.render('login');
@@ -56,8 +57,13 @@ const controller = {
 				oldData: req.body
 			});
 		}
-
-		let userInDB = User.findByField('email', req.body.email);
+		// function findByField  (field, text) {
+		// 	let allUsers = this.findAll();
+		// 	let userFound = allUsers.find(oneUser => oneUser[field] === text);
+		// 	return userFound;
+		// }
+		
+		let userInDB = db.administrador.findByField('email', req.body.email);
 
 		if (userInDB) {
 			return res.render('formulario', {
@@ -69,17 +75,29 @@ const controller = {
 				oldData: req.body
 			});
 		}
-
+		generateId => {
+			let allUsers = this.findAll();
+			let lastUser = allUsers.pop();
+			if (lastUser) {
+				return lastUser.id + 1;
+			}
+			return 1;
+		}
 		let userToCreate = {
+			
 			...req.body,
+			id: generateId,
 			password: bcryptjs.hashSync(req.body.password, 10),
 			avatar: req.file.filename
 		}
 
-		let userCreated = User.create(userToCreate);
+		let userCreated = db.administrador.create(userToCreate)
 
 		return res.redirect('/user/login');
 	},
+	
+	
+
 	
 	profile: (req, res) => {
 		return res.render('profile', {

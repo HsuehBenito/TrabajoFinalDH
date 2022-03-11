@@ -4,8 +4,6 @@ function ventasData(sequelize, Datatypes){
     
     cols = {
       id: {type: Datatypes.INTEGER, primaryKey: true, autoIncrement: true},
-      created_at: {type: Datatypes.DATE},
-      updated_at: {type: Datatypes.DATE},
       fecha_venta: {type: Datatypes.DATE},
       total: {type: Datatypes.FLOAT(255)},
       nombre: {type: Datatypes.STRING(255)},

@@ -14,7 +14,7 @@ const authMiddleware = require('../middlewares/authMiddleware');
 router.get('/register', guestMiddleware, usersController.register);
 
 // Procesar el registro
-router.post('/register', uploadFile.single('avatar'), validations, usersController.processRegister);
+router.post('/register', uploadFile.single('avatar'),  usersController.processRegister); //validations
 
 // Formulario de login
 router.get('/login', guestMiddleware, usersController.login);
@@ -34,6 +34,7 @@ router.get('/editar-producto/:id', usersController.edit);
 
 router.get('/carrito', usersController.carrito);
 // crear-edit
+//router.post('/crear-producto', usersController.crear); lo comentamos para ver si es que pisaba y cagaba todo.
 router.put('/editar-producto/:id',uploadFile.single("img"), usersController.update); // agregamos uploadfile.single para ver si pega encima
 // delete
 router.delete('/delete/:id', usersController.destroy);

@@ -17,7 +17,7 @@
 								<label><b>Nombre completo:</b></label>
 								<input 
 									type="text" 
-									name="fullName" 
+									name="nombre_completo" 
 									class="form-control <%= locals.errors && errors.fullName ? 'is-invalid' : null %>"
 									value="<%= locals.oldData ? oldData.fullName : null %>"
 								>
@@ -61,25 +61,15 @@
 						</div>
 						<div class="col-md-6 my-1">
 							<div class="form-group">
-								<label><b>País de nacimiento:</b></label>
-								<select 
-									name="country" 
-									class="form-select <%= locals.errors && errors.country ? 'is-invalid' : null %>"
+								<label><b>Telefono:</b></label>
+								<input 
+									type="number" 
+									name="telefono" 
+									class="form-control <%= locals.errors && errors.telefono ? 'is-invalid' : null %>"
 								>
-									<option value="">Elegí un país</option>
-									<%  
-										let countries = ['Argentina', 'Bolivia', 'Brasil', 'Colombia', 'Chile', 'Ecuador', 'Paraguay', 'Perú', 'Uruguay', 'Venezuela'];
-									%>
-									<% for (const oneCountry of countries) { %>
-										<option 
-											value="<%= oneCountry %>"
-											<%= locals.oldData && (oneCountry === oldData.country) ? 'selected' : null %> 
-										> <%= oneCountry %> </option>
-									<% } %>
-								</select>
-								<% if (locals.errors && errors.country) { %>
+								<% if (locals.errors && errors.telefono) { %>
 									<div class="text-danger">
-										<%= errors.country.msg %>
+										<%= errors.telefono.msg %>
 									</div>
 								<% } %>
 							</div>

@@ -4,8 +4,6 @@ function adminData(sequelize, Datatypes){
 
     cols = {
       id: {type: Datatypes.INTEGER, primaryKey: true, autoIncrement: true},
-      created_at: {type: Datatypes.DATE},
-      updated_at: {type: Datatypes.DATE},
       nombre_completo: {type: Datatypes.STRING(255)},
       email: {type: Datatypes.STRING(255)},
       password: {type: Datatypes.STRING(255)},
@@ -19,8 +17,8 @@ function adminData(sequelize, Datatypes){
 
     administrador.associate = function (modelos){
 
-        administrador.hasMany(modelos.productos, {   
-        as: "productos",
+        administrador.belongsTo(modelos.productos, {   
+        as: "administrador",
         foreignKey: "id_administrador"
       });
     }

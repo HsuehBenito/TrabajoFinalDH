@@ -1,6 +1,6 @@
-// function ventas_productosData(sequelize, Datatypes){
+// function ventasproductosData(sequelize, Datatypes){
 
-//     alias = 'ventas_productos';
+//     alias = 'ventasproductos';
     
 //     cols = {
 //       id: {type: Datatypes.INTEGER, primaryKey: true, autoIncrement: true},
@@ -21,7 +21,7 @@
 //     }
     
     
-//     return ventas_productos;
+//     return ventasproductos;
     
 //     }
-//     module.exports = ventas_productosData;
+//     module.exports = ventasproductosData;
