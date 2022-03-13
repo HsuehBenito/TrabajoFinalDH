@@ -10,19 +10,27 @@ const controller = {
 	},
 
 	detail: (req, res) => {
+        db.productos.findByPk(req.params.id, {
+            include: [{association: "categorias"}]
+        })
+        
+        .then(function(producto){
+            
+            res.render('detail',{producto: producto})
+        })
 
-        let idProductoSeleccionado = req.params.id;
-        let productoSeleccionado;
+        // let idProductoSeleccionado = req.params.id;
+        // let productoSeleccionado;
 
-        for (let p of products){
+        // for (let p of products){
 
-            if(p.id==idProductoSeleccionado){
-                productoSeleccionado=p;
-                break;
-            }
-        }
+        //     if(p.id==idProductoSeleccionado){
+        //         productoSeleccionado=p;
+        //         break;
+        //     }
+        // }
 
-        res.render('detail',{producto: productoSeleccionado});
+        // res.render('detail',{producto: productoSeleccionado});
     },
     
     index: (req, res) => {
@@ -36,6 +44,7 @@ const controller = {
 
                 
                 let objaux={
+                    id: p.id,
                     nombre:  p.nombre,
                     precio:  p.precio,
                     descripcion: p.descripcion,

@@ -6,35 +6,57 @@
 	<div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="products-title">Estás editando: <i><%=producto.name%></i></h2>
+				<h2 class="products-title">Estás editando: <i><%= productos.nombre %></i></h2>
 			</div>
 		</div>
 		<div class="col-12">
-			<form action="/user/editar-producto/<%=producto.id%>?_method=PUT" method="POST"> 
+			<form action="/user/editar-producto/<%=productos.id%>?_method=PUT" method="POST"> 
 				<div class="row product-detail">
 					<div class="col-12 col-md-6">
-						<label for="name" class="form-label">Nombre del producto: </label>
-						<input type="text" id="name" name="name" placeholder="" value="" class="form-input">
+						<label for="nombre" class="form-label">Nombre del producto: </label>
+						<input type="text" id="nombre" name="nombre" placeholder="" value="<%= productos.nombre %>" class="form-input">
 					</div>
 					<div class="col-12 col-md-6">
-						<label for="price" class="form-label">Precio del producto: </label>
-						<input type="text" id="price" name="price" placeholder="" value="" class="form-input">
+						<label for="precio" class="form-label">Precio del producto: </label>
+						<input type="text" id="precio" name="precio" placeholder="" value="<%= productos.precio %>" class="form-input">
 					</div>
 					<div class="col-12 col-md-6">
-						<label for="discount" class="form-label">Descuento:</label>
-						<input type="text" id="discount" name="discount" placeholder="" value=""  class="form-input">
+						<label for="blend" class="form-label">Blend:</label>
+						<input type="text" id="blend" name="blend" placeholder="" value="<%= productos.blend %>"  class="form-input">
 					</div>
-					<div class="col-12 col-md-6">
-						<label for="category" class="form-label">Categoría:</label>
-						<select name="category" id="category" class="form-input">
-							<option value="">Elegí</option>
-							<option value="in-sale">En oferta</option>
-							<option value="visited" >Últimos agregados</option>
+					<!-- <div class="col-12 col-md-6">
+						<label for="discount" class="form-label">Categoria:</label>
+						<select name="categorias" class="form-label">
+							<% for (let i = 0; i < categorias.lenght;i++){%>
+								<% if (categorias[i].id == productos.id_categorias ){%>
+								<option value="<%= categorias[i].id %>" selected>
+									<%= categorias[i].nombre %>
+								</option>
+								<% } else { %>
+									<option value="<%= categorias[i].id %>" >
+										<%= categorias[i].nombre %>
+									</option>
+							<% } %>
+						
+						<% } %>
 						</select>
+						
+					</div> -->
+					<div class="col-12 col-md-6">
+						<label for="cosecha" class="form-label">Cosecha:</label>
+						<input type="text" id="cosecha" name="cosecha" placeholder="" value="<%= productos.cosecha %>"  class="form-input">
+					</div>
+					<div class="col-12 col-md-6">
+						<label for="volumen" class="form-label">Volumen:</label>
+						<input type="text" id="volumen" name="volumen" placeholder="" value="<%= productos.volumen %>"  class="form-input">
+					</div>
+					<div class="col-12 col-md-6">
+						<label for="stock" class="form-label">Stock:</label>
+						<input type="text" id="stock" name="stock" placeholder="" value="<%= productos.stock %>"  class="form-input">
 					</div>
 					<div class="col-12">
-						<label for="description" class="form-label">Descipción:</label>
-						<textarea name="description" id="description" class="form-input" value=""></textarea>
+						<label for="descripcion" class="form-label">Descripción:</label>
+						<textarea name="descripcion" id="descripcion" class="form-input" value="<%= productos.descripcion %>"></textarea>
 					</div>
 					<div class="col-12">
                         <input type="file" style="background-color: cornflowerblue; color:white; width: 400px; height: 20px;" name="img"></input>

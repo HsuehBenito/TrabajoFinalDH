@@ -25,7 +25,11 @@ function productosData(sequelize, Datatypes){
         as: "administrador",
         foreignKey: "id_administrador"
         });
-    
+
+        productos.belongsTo(modelos.categorias, {   
+          as: "categorias",
+          foreignKey: "id_categorias"
+          });
     
       
       productos.belongsToMany(modelos.ventas, {

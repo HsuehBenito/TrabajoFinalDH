@@ -5,10 +5,10 @@ const {
 	validationResult
 } = require('express-validator');
 
-const User = require('../database/users.json');
+const User = require('../database/modelos-user/User.js');
 const productsFilePath = path.join(__dirname, '../database/productosBaseDatos.json');
 const db = require('../database/models/');
-const { generateId } = require('../database/modelos-user/user');
+const { generateId } = require('../database/modelos-user/User');
 const controller = {
 	login: (req, res) => {
 		return res.render('login');
@@ -18,6 +18,7 @@ const controller = {
 		
 		if(userToLogin) {
 			let isOkThePassword = bcryptjs.compareSync(req.body.password, userToLogin.password);
+			console.log(req.session.userLogged)
 			if (isOkThePassword) {
 				delete userToLogin.password;
 				req.session.userLogged = userToLogin;
@@ -28,6 +29,7 @@ const controller = {
 
 				return res.redirect('/user/profile');
 			} 
+			
 			return res.render('login', {
 				errors: {
 					email: {
@@ -63,7 +65,7 @@ const controller = {
 		// 	return userFound;
 		// }
 		
-		let userInDB = db.administrador.findByField('email', req.body.email);
+		let userInDB = User.findByField('email', req.body.email);
 
 		if (userInDB) {
 			return res.render('formulario', {
@@ -75,23 +77,22 @@ const controller = {
 				oldData: req.body
 			});
 		}
-		generateId => {
-			let allUsers = this.findAll();
-			let lastUser = allUsers.pop();
-			if (lastUser) {
-				return lastUser.id + 1;
-			}
-			return 1;
-		}
+		// generateId => {
+		// 	let allUsers = this.findAll();
+		// 	let lastUser = allUsers.pop();
+		// 	if (lastUser) {
+		// 		return lastUser.id + 1;
+		// 	}
+		// 	return 1;
+		// }
 		let userToCreate = {
 			
 			...req.body,
-			id: generateId,
 			password: bcryptjs.hashSync(req.body.password, 10),
 			avatar: req.file.filename
 		}
 
-		let userCreated = db.administrador.create(userToCreate)
+		let userCreated = User.create(userToCreate)
 
 		return res.redirect('/user/login');
 	},
@@ -116,84 +117,116 @@ const controller = {
 	crear: (req,res) => {
 		res.render('crear-producto')
 	},
-	edit: (req, res) => {
+	edit: function(req, res)  {
+		let pedidoProducto = db.productos.findByPk(req.params.id);
+		let pedidoCategorias = db.categorias.findAll();
+		console.log(pedidoCategorias)
+		Promise.all([pedidoProducto, pedidoCategorias])
+		 .then(function([productos, categorias]){
+			res.render("editar-producto", {productos:productos,categorias:categorias})
+		 })
 
+		 console.log(pedidoCategorias)
+        // let idProductoSeleccionado = req.params.id;
+        // let productoSeleccionado;
 
-        let idProductoSeleccionado = req.params.id;
-        let productoSeleccionado;
+        // for (let p of products){
 
-        for (let p of products){
-
-            if(p.id==idProductoSeleccionado){
-                productoSeleccionado=p;
-                break;
-			}
-		}
+        //     if(p.id==idProductoSeleccionado){
+        //         productoSeleccionado=p;
+        //         break;
+		// 	}
+		// }
 		
 	
-			res.render('editar-producto',{producto: productoSeleccionado});
+		// 	res.render('editar-producto',{producto: productoSeleccionado});
 		},
+
 		update: (req, res) => {
-			console.log('llegue')
-			let idProductoSeleccionado = req.params.id;
-			let datos = req.body;
-	
-			for (let p of products){
-				if(p.id==idProductoSeleccionado){
-					productoSeleccionado=p;
-					fs.unlink(path.join(__dirname, '../../public/img/' + p.image), (error) => {
-						(console.log(error))
+			db.productos.update(
+				{ 
+					nombre:  req.body.nombre,
+					precio:  req.body.precio,
+					descripcion: req.body.descripcion,
+					blend: req.body.blend,
+					cosecha: req.body.cosecha,
+					volumen: req.body.volumen,
+					stock: req.body.stock,
+					img: req.body.file
+		
+				}, {where: {id : req.params.id}}
+					)
+				.then((resultados)  => { 
+				res.redirect('/detail/' + req.params.id);
+				 });
+			
+			// let idProductoSeleccionado = req.params.id;
+			
+
+			// for (let p of products){
+			// 	if(p.id==idProductoSeleccionado){
+			// 		productoSeleccionado=p;
+			// 		fs.unlink(path.join(__dirname, '../../public/img/' + p.image), (error) => {
+			// 			(console.log(error))
 					
-					});
-					p.name = datos.name;
-					p.price = datos.price;
-					p.description = datos.description;
-					p.image = datos.image;
+			// 		});
+			// 		p.name = req.body.name;
+			// 		p.price = req.body.price;
+			// 		p.description = req.body.description;
+			// 		p.image = req.body.image;
 					
-					break;
-				}
-			}
+			// 		break;
+			// 	}
+			// }
 			
 	
-			fs.writeFileSync(productsFilePath, JSON.stringify(products,null,' '));
+			// fs.writeFileSync(productsFilePath, JSON.stringify(products,null,' '));
 
 			
 	
-			res.redirect('/');
+			// res.redirect('/');
 	
 		},
 		destroy : (req, res) => {
-
-			let idProductoSeleccionado = req.params.id;
-        	let productoSeleccionado;
-
-        	for (let p of products){
-
-            if(p.id==idProductoSeleccionado){
-                productoSeleccionado=p;
-                break;
-            }
-        }
-			
-			let products2 = products.filter(function(element){
-				
-				return element.id!=idProductoSeleccionado;
+			db.productos.destroy({
+				where : {
+					id: req.params.id
+				}
 			})
-			fs.unlink(path.join(__dirname, '../../public/img/' + productoSeleccionado.image), (error) => {
-				(console.log(error))
-			
-			});
+			.then(
+				res.redirect("/producto")
+			)
 
-			fs.writeFileSync(productsFilePath, JSON.stringify(products2,null,' '));
+		// 	let idProductoSeleccionado = req.params.id;
+        // 	let productoSeleccionado;
+
+        // 	for (let p of products){
+
+        //     if(p.id==idProductoSeleccionado){
+        //         productoSeleccionado=p;
+        //         break;
+        //     }
+        // }
+			
+		// 	let products2 = products.filter(function(element){
+				
+		// 		return element.id!=idProductoSeleccionado;
+		// 	})
+		// 	fs.unlink(path.join(__dirname, '../../public/img/' + productoSeleccionado.image), (error) => {
+		// 		(console.log(error))
+			
+		// 	});
+
+		// 	fs.writeFileSync(productsFilePath, JSON.stringify(products2,null,' '));
 	
-			res.redirect('/');
+		// 	res.redirect('/');
 	
 	
 		},
 		
 		store: (req, res) => {
-
-
+			db.categorias.findAll()
+			.then(
     		db.productos.create(
     	{ 
 			nombre:  req.body.nombre,
@@ -203,9 +236,10 @@ const controller = {
 			cosecha: req.body.cosecha,
 			volumen: req.body.volumen,
 			stock: req.body.stock,
+			
 
     	}
-   	 	)
+   	 	))
     	.then((resultados)  => { 
         res.redirect('/producto');
      	});

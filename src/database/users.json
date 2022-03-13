@@ -22,5 +22,13 @@
   "password": "$2a$10$sUpG54DOncmgRPwXChWHkeo5G1NfNPz4n9XxOXRyBmCH.qfedGcb6",
   "country": "Argentina",
   "avatar": "1646094284116_img.jpg"
+ },
+ {
+  "id": 4,
+  "nombre_completo": "Pikachu",
+  "email": "pikachu@gmail.com",
+  "password": "$2a$10$O4lK28eGPwV.SraZu7Vtpu36asvylv1Hw7sDUkMo0HawuYOwvviLa",
+  "telefono": "01137562228",
+  "avatar": "1647208259162_img.jpg"
  }
 ]
