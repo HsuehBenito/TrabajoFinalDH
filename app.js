@@ -7,7 +7,7 @@ const path = require('path');
 const userLoggedMiddleware = require('./src/middlewares/userLoggedMiddleware');
 
 app.use(session({
-	secret: "Shhh, It's a secret",
+	secret: "ILSECRETOLOCO!@#123",
 	resave: false,
 	saveUninitialized: false,
 }));
