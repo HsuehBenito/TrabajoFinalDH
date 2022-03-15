@@ -5,21 +5,25 @@ const {
 	validationResult
 } = require('express-validator');
 
-const User = require('../database/modelos-user/User.js');
-const productsFilePath = path.join(__dirname, '../database/productosBaseDatos.json');
+//const User = require('../database/modelos-user/User.js');
+//const productsFilePath = path.join(__dirname, '../database/productosBaseDatos.json');
 const db = require('../database/models/');
-const { generateId } = require('../database/modelos-user/User');
+//const { generateId } = require('../database/modelos-user/User');
 const controller = {
 	login: (req, res) => {
 		return res.render('login');
 	},
 	loginProcess: (req, res) => {
-		let userToLogin = User.findByField('email', req.body.email);
+		let userToLogin = db.administrador.findOne({where:{email:'req.body.email'}})
 		
+		.then((userToLogin) => {
+			console.log(userToLogin)
+		});
 		if(userToLogin) {
-			let isOkThePassword = bcryptjs.compareSync(req.body.password, userToLogin.password);
-			console.log(req.session.userLogged)
-			if (isOkThePassword) {
+			let isOkThePassword = req.body.password == userToLogin.password;
+			
+			if (req.body.password == userToLogin.password) {
+				
 				delete userToLogin.password;
 				req.session.userLogged = userToLogin;
 
@@ -28,15 +32,18 @@ const controller = {
 				}
 
 				return res.redirect('/user/profile');
-			} 
+			}
+
 			
-			return res.render('login', {
-				errors: {
-					email: {
-						msg: 'Las credenciales son inválidas'
-					}
-				}
-			});
+			
+			
+			 return res.render('login', {
+			 	errors: {
+			 		email: {
+			 			msg: 'Las credenciales son inválidas'
+			 		}
+			 	}
+			 });
 		}
 
 		return res.render('login', {
@@ -65,18 +72,18 @@ const controller = {
 		// 	return userFound;
 		// }
 		
-		let userInDB = User.findByField('email', req.body.email);
+		let userInDB = db.administrador.findOne({where:{email: 'req.body.email'}})
 
-		if (userInDB) {
-			return res.render('formulario', {
-				errors: {
-					email: {
-						msg: 'Este email ya está registrado'
-					}
-				},
-				oldData: req.body
-			});
-		}
+		// if (userInDB) {
+		// 	return res.render('formulario', {
+		// 		errors: {
+		// 			email: {
+		// 				msg: 'Este email ya está registrado'
+		// 			}
+		// 		},
+		// 		oldData: req.body
+		// 	});
+		//}
 		// generateId => {
 		// 	let allUsers = this.findAll();
 		// 	let lastUser = allUsers.pop();
@@ -87,12 +94,16 @@ const controller = {
 		// }
 		let userToCreate = {
 			
-			...req.body,
-			password: bcryptjs.hashSync(req.body.password, 10),
-			avatar: req.file.filename
+			//...req.body,
+			nombre_completo : req.body.nombre_completo,
+			email: req.body.email,
+			password: req.body.password,
+			//password: bcryptjs.hashSync(req.body.password, 10),
+			telefono: req.body.telefono,
+			foto_perfil: req.file.filename
 		}
 
-		let userCreated = User.create(userToCreate)
+		let userCreated = db.administrador.create(userToCreate)
 
 		return res.redirect('/user/login');
 	},

@@ -1,8 +1,8 @@
 function productosData(sequelize, Datatypes){
 
-    alias = 'productos';
+    let alias = 'productos';
     
-    cols = {
+    let cols = {
       id: {type: Datatypes.INTEGER, primaryKey: true, autoIncrement: true},
       id_administrador:{type: Datatypes.INTEGER},
       nombre: {type: Datatypes.STRING(255)},
@@ -15,7 +15,7 @@ function productosData(sequelize, Datatypes){
       id_categorias: {type: Datatypes.INTEGER}, 
     }
     
-    config = {camelCase: false, timestamps: false}; 
+    let config = {tableName: "productos", camelCase: false, timestamps: false}; 
     
     const productos = sequelize.define(alias,cols,config)
     

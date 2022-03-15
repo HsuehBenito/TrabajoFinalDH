@@ -1,8 +1,8 @@
 function ventasData(sequelize, Datatypes){
 
-    alias = 'ventas';
+    let alias = 'ventas';
     
-    cols = {
+    let cols = {
       id: {type: Datatypes.INTEGER, primaryKey: true, autoIncrement: true},
       fecha_venta: {type: Datatypes.DATE},
       total: {type: Datatypes.FLOAT(255)},
@@ -12,7 +12,7 @@ function ventasData(sequelize, Datatypes){
       detalle: {type: Datatypes.STRING(255)},
     }
     
-    config = {camelCase: false, timestamps: false}; 
+    let config = {tableName: "ventas", camelCase: false, timestamps: false};
     
     const ventas = sequelize.define(alias,cols,config)
     

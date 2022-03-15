@@ -1,13 +1,13 @@
 function categoriasData(sequelize, Datatypes){
 
-    alias = 'categorias';
+    let alias = 'categorias';
 
-    cols = {
+    let cols = {
       id: {type: Datatypes.INTEGER, primaryKey: true, autoIncrement: true},
       nombre: {type: Datatypes.STRING(255)},
     }
 
-    config = {camelCase: false, timestamps: false}; 
+    let config = {tableName: "categorias", camelCase: false, timestamps: false}; 
 
     const categorias = sequelize.define(alias,cols,config)
 

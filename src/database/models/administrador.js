@@ -1,8 +1,8 @@
 function adminData(sequelize, Datatypes){
 
-    alias = 'administrador';
+    let alias = 'administrador';
 
-    cols = {
+    let cols = {
       id: {type: Datatypes.INTEGER, primaryKey: true, autoIncrement: true},
       nombre_completo: {type: Datatypes.STRING(255)},
       email: {type: Datatypes.STRING(255)},
@@ -11,7 +11,7 @@ function adminData(sequelize, Datatypes){
       foto_perfil: {type: Datatypes.STRING(255)},
     }
 
-    config = {camelCase: false, timestamps: false}; 
+    let config = {tableName: "administrador", camelCase: false, timestamps: false}; 
 
     const administrador = sequelize.define(alias,cols,config)
 
