@@ -5,6 +5,11 @@ const {
 	validationResult
 } = require('express-validator');
 
+
+
+
+
+
 //const User = require('../database/modelos-user/User.js');
 //const productsFilePath = path.join(__dirname, '../database/productosBaseDatos.json');
 const db = require('../database/models/');
@@ -57,7 +62,21 @@ const controller = {
 	register: (req, res) => {
 		return res.render('formulario');
 	},
-	processRegister: (req, res) => {
+	processRegister: function(req,res){
+		db.administrador.create({
+				nombre_completo : req.body.nombre_completo,
+				email: req.body.email,
+				// password: req.body.password,
+				password : bcryptjs.hashSync('req.body.password', 10),
+				telefono: req.body.telefono,
+				foto_perfil: req.file.filename
+		});
+			return res.redirect('/user/login');
+	
+			
+	
+		
+
 		const resultValidation = validationResult(req);
 
 		if (resultValidation.errors.length > 0) {
@@ -72,7 +91,7 @@ const controller = {
 		// 	return userFound;
 		// }
 		
-		let userInDB = db.administrador.findOne({where:{email: 'req.body.email'}})
+		// let userInDB = db.administrador.findAll
 
 		// if (userInDB) {
 		// 	return res.render('formulario', {
@@ -92,20 +111,20 @@ const controller = {
 		// 	}
 		// 	return 1;
 		// }
-		let userToCreate = {
+		// let userToCreate = {
 			
 			//...req.body,
-			nombre_completo : req.body.nombre_completo,
-			email: req.body.email,
-			password: req.body.password,
-			//password: bcryptjs.hashSync(req.body.password, 10),
-			telefono: req.body.telefono,
-			foto_perfil: req.file.filename
-		}
+		// 	nombre_completo : req.body.nombre_completo,
+		// 	email: req.body.email,
+		// 	password: req.body.password,
+		// 	//password: bcryptjs.hashSync(req.body.password, 10),
+		// 	telefono: req.body.telefono,
+		// 	foto_perfil: req.file.filename
+		// }
 
-		let userCreated = db.administrador.create(userToCreate)
+		// let userCreated = db.administrador.create(userToCreate)
 
-		return res.redirect('/user/login');
+		// return res.redirect('/user/login');
 	},
 	
 	
