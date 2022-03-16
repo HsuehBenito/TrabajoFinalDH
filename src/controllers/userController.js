@@ -6,10 +6,6 @@ const {
 } = require('express-validator');
 
 
-
-
-
-
 //const User = require('../database/modelos-user/User.js');
 //const productsFilePath = path.join(__dirname, '../database/productosBaseDatos.json');
 const db = require('../database/models/');
@@ -19,16 +15,15 @@ const controller = {
 		return res.render('login');
 	},
 	loginProcess: (req, res) => {
-		let userToLogin = db.administrador.findOne({where:{email:'req.body.email'}})
-		
+		let userToLogin = db.administrador.findOne({where:{email: req.body.email}})
 		.then((userToLogin) => {
-			console.log(userToLogin)
-		});
+            console.log(userToLogin)
+		console.log(userToLogin.password)
+        
+		
 		if(userToLogin) {
-			let isOkThePassword = req.body.password == userToLogin.password;
-			
-			if (req.body.password == userToLogin.password) {
-				
+			let okPassword = bcryptjs.compareSync(req.body.password, userToLogin.password);
+				if (okPassword){
 				delete userToLogin.password;
 				req.session.userLogged = userToLogin;
 
@@ -38,10 +33,6 @@ const controller = {
 
 				return res.redirect('/user/profile');
 			}
-
-			
-			
-			
 			 return res.render('login', {
 			 	errors: {
 			 		email: {
@@ -57,21 +48,25 @@ const controller = {
 					msg: 'No se encuentra este email en nuestra base de datos'
 				}
 			}
-		});
+		});});
 	},
 	register: (req, res) => {
 		return res.render('formulario');
 	},
 	processRegister: function(req,res){
+		let p = bcryptjs.hashSync(req.body.password, 10)
+		console.log(req.body.password)
+		console.log(p)
+
 		db.administrador.create({
 				nombre_completo : req.body.nombre_completo,
 				email: req.body.email,
-				// password: req.body.password,
-				password : bcryptjs.hashSync('req.body.password', 10),
+				password : p,
 				telefono: req.body.telefono,
 				foto_perfil: req.file.filename
 		});
 			return res.redirect('/user/login');
+
 	
 			
 	
@@ -103,28 +98,7 @@ const controller = {
 		// 		oldData: req.body
 		// 	});
 		//}
-		// generateId => {
-		// 	let allUsers = this.findAll();
-		// 	let lastUser = allUsers.pop();
-		// 	if (lastUser) {
-		// 		return lastUser.id + 1;
-		// 	}
-		// 	return 1;
-		// }
-		// let userToCreate = {
-			
-			//...req.body,
-		// 	nombre_completo : req.body.nombre_completo,
-		// 	email: req.body.email,
-		// 	password: req.body.password,
-		// 	//password: bcryptjs.hashSync(req.body.password, 10),
-		// 	telefono: req.body.telefono,
-		// 	foto_perfil: req.file.filename
-		// }
 
-		// let userCreated = db.administrador.create(userToCreate)
-
-		// return res.redirect('/user/login');
 	},
 	
 	
@@ -145,12 +119,19 @@ const controller = {
 		res.render('carrito');
 	},
 	crear: (req,res) => {
-		res.render('crear-producto')
+		let pedidoCategorias = db.categorias.findAll()
+		let pedidoProducto = db.productos.findAll()
+		let pedidoAdmnistrador = db.administrador.findAll()
+		Promise.all([pedidoProducto, pedidoCategorias,pedidoAdmnistrador])
+		.then(function([productos, categorias,administrador]){
+			return res.render('crear-producto', {categorias : categorias, productos: productos, administrador:administrador})
+
+		})
 	},
 	edit: function(req, res)  {
 		let pedidoProducto = db.productos.findByPk(req.params.id);
 		let pedidoCategorias = db.categorias.findAll();
-		console.log(pedidoCategorias)
+		
 		Promise.all([pedidoProducto, pedidoCategorias])
 		 .then(function([productos, categorias]){
 			res.render("editar-producto", {productos:productos,categorias:categorias})
@@ -266,12 +247,13 @@ const controller = {
 			cosecha: req.body.cosecha,
 			volumen: req.body.volumen,
 			stock: req.body.stock,
+			categorias: req.body.categorias
 			
 
     	}
    	 	))
     	.then((resultados)  => { 
-        res.redirect('/producto');
+        res.render('producto');
      	});
 
 

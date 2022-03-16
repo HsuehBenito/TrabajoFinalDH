@@ -59,7 +59,7 @@ const controller = {
 
             console.log("ver: ", listaProductos);
 
-            res.render('producto',{AllProductos: listaProductos});
+            res.render('producto',{listaProductos: listaProductos});
             
         }).catch(error => {
             console.log(error)

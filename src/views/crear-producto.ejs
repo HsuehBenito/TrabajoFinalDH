@@ -49,7 +49,42 @@
 						<label for="stock" class="form-label">Stock:</label>
 						<input type="text" id="stock" name="stock" placeholder="Ej: 15" class="form-input">
 					</div>
-					
+					<div class="col-12 col-md-6">
+						<label for="discount" class="form-label">Categoria:</label>
+						<select name="categorias" class="form-label">
+							<% for (let i = 0; i < categorias.length; i++){%>
+								<% if (categorias[i].id == productos.id_categorias ){%>
+								<option value="<%= categorias[i].id %>" selected>
+									<%= categorias[i].nombre %>
+								</option>
+								<% } else { %>
+									<option value="<%= categorias[i].id %>" >
+										<%= categorias[i].nombre %>
+									</option>
+							<% } %>
+						
+						<% } %>
+						</select>
+						
+					</div>
+					<div class="col-12 col-md-6">
+						<label for="administrador" class="form-label">Administrador:</label>
+						<select name="administrador" class="form-label">
+							<% for (let i = 0; i < administrador.length; i++){%>
+								<% if (administrador[i].id == productos.id_administrador ){%>
+								<option value="<%= administrador[i].id %>" selected>
+									<%= administrador[i].nombre_completo %>
+								</option>
+								<% } else { %>
+									<option value="<%= administrador[i].id %>" >
+										<%= administrador[i].nombre_completo %>
+									</option>
+							<% } %>
+						
+						<% } %>
+						</select>
+						
+					</div>
 					<!-- <div class="col-12">
                         <input type="file" style="background-color: cornflowerblue; color:white; width: 400px; height: 20px;" name="img"></input>
                     </div> -->
