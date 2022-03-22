@@ -5,7 +5,6 @@ const {
 	validationResult
 } = require('express-validator');
 
-
 //const User = require('../database/modelos-user/User.js');
 //const productsFilePath = path.join(__dirname, '../database/productosBaseDatos.json');
 const db = require('../database/models/');
@@ -108,7 +107,6 @@ const controller = {
 			user: req.session.userLogged
 		});
 	},
-
 	logout: (req, res) => {
 		res.clearCookie('userEmail');
 		req.session.destroy();
@@ -118,25 +116,23 @@ const controller = {
 		res.render('carrito');
 	},
 	crear: (req,res) => {
-		
 		let pedidoCategorias = db.categorias.findAll()
 		let pedidoProducto = db.productos.findAll()
 		let pedidoAdmnistrador = db.administrador.findAll()
 		Promise.all([pedidoProducto, pedidoCategorias,pedidoAdmnistrador])
 		.then(function([productos, categorias,administrador]){
 			return res.render('crear-producto', {categorias : categorias, productos: productos, administrador:administrador})
-
 		})
 	},
 	edit: function(req, res)  {
 		let pedidoCategorias = db.categorias.findAll()
-		let pedidoProducto = db.productos.findAll()
 		let pedidoAdmnistrador = db.administrador.findAll()
-		Promise.all([pedidoProducto, pedidoCategorias,pedidoAdmnistrador])
-		.then(function([productos, categorias,administrador]){
-			return res.render('crear-producto', {categorias : categorias, productos: productos, administrador:administrador})
-
+        let pedidoProducto =  db.productos.findByPk(req.params.id)
+        Promise.all([pedidoProducto, pedidoCategorias,pedidoAdmnistrador])
+		.then(function([producto, categorias,administrador]){
+			return res.render('editar-producto', {categorias : categorias, producto: producto, administrador:administrador})
 		})
+	
         
 		},
 
@@ -153,37 +149,34 @@ const controller = {
 					stock: req.body.stock,
 					img: req.file.filename
 		
-				}, {where: {id : req.params.id}}
-					)
+				}, {where: {id : req.params.id}})
+				let productoSeleccionado = db.productos.findOne({where:{id: req.params.id}})
 				.then((resultados)  => { 
-					fs.unlink(path.join(__dirname, '../../public/img/' + productos.img),(error) => {
+					fs.unlink(path.join(__dirname, '../../public/img/' + productoSeleccionado.img),(error) => {
 						(console.log(error))
-								
+
 						});
 				 })
 				 .then(res.render(home));
 			
-
-	
 		},
 		destroy : (req, res) => {
+			let productoSeleccionado = db.productos.findOne({where:{id: req.params.id}})
+			.then(
 			db.productos.destroy({
 				where : {
 					id: req.params.id
 				}
 			})
 			.then((resultados)  => { 
-				fs.unlink(path.join(__dirname, '../../public/img/' + productos.img),(error) => {
+				fs.unlink(path.join(__dirname, '../../public/img/' + productoSeleccionado.img),(error) => {
 					(console.log(error))
-							
 					});
 			 })
 			.then(
 				res.redirect("/producto")
 			)
-
-	
-	
+			)
 		},
 		
 		store: (req, res) => {
@@ -200,21 +193,11 @@ const controller = {
 			id_categorias: req.body.categorias,
 			img: req.file.filename,
 			id_administrador: req.body.administrador,
-
-			
-
-    	}
-   	 	)
+		})
 			.then((resultados)  => { 
 				res.render('home');
      	})
-
-
     	},
-	
-		
-	
-	
 }
 
 module.exports = controller;
