@@ -55,8 +55,7 @@ const controller = {
 	},
 	processRegister: function(req,res){
 		let p = bcryptjs.hashSync(req.body.password, 10)
-		console.log(req.body.password)
-		console.log(p)
+		
 
 		db.administrador.create({
 				nombre_completo : req.body.nombre_completo,
@@ -130,31 +129,19 @@ const controller = {
 		})
 	},
 	edit: function(req, res)  {
-		let pedidoProducto = db.productos.findByPk(req.params.id);
-		let pedidoCategorias = db.categorias.findAll();
-		
-		Promise.all([pedidoProducto, pedidoCategorias])
-		 .then(function([productos, categorias]){
-			res.render("editar-producto", {productos:productos,categorias:categorias})
-		 })
+		let pedidoCategorias = db.categorias.findAll()
+		let pedidoProducto = db.productos.findAll()
+		let pedidoAdmnistrador = db.administrador.findAll()
+		Promise.all([pedidoProducto, pedidoCategorias,pedidoAdmnistrador])
+		.then(function([productos, categorias,administrador]){
+			return res.render('crear-producto', {categorias : categorias, productos: productos, administrador:administrador})
 
-		 console.log(pedidoCategorias)
-        // let idProductoSeleccionado = req.params.id;
-        // let productoSeleccionado;
-
-        // for (let p of products){
-
-        //     if(p.id==idProductoSeleccionado){
-        //         productoSeleccionado=p;
-        //         break;
-		// 	}
-		// }
-		
-	
-		// 	res.render('editar-producto',{producto: productoSeleccionado});
+		})
+        
 		},
 
 		update: (req, res) => {
+			
 			db.productos.update(
 				{ 
 					nombre:  req.body.nombre,
@@ -164,39 +151,19 @@ const controller = {
 					cosecha: req.body.cosecha,
 					volumen: req.body.volumen,
 					stock: req.body.stock,
-					img: req.body.file
+					img: req.file.filename
 		
 				}, {where: {id : req.params.id}}
 					)
 				.then((resultados)  => { 
-				res.redirect('/detail/' + req.params.id);
-				 });
-			
-			// let idProductoSeleccionado = req.params.id;
+					fs.unlink(path.join(__dirname, '../../public/img/' + productos.img),(error) => {
+						(console.log(error))
+								
+						});
+				 })
+				 .then(res.render(home));
 			
 
-			// for (let p of products){
-			// 	if(p.id==idProductoSeleccionado){
-			// 		productoSeleccionado=p;
-			// 		fs.unlink(path.join(__dirname, '../../public/img/' + p.image), (error) => {
-			// 			(console.log(error))
-					
-			// 		});
-			// 		p.name = req.body.name;
-			// 		p.price = req.body.price;
-			// 		p.description = req.body.description;
-			// 		p.image = req.body.image;
-					
-			// 		break;
-			// 	}
-			// }
-			
-	
-			// fs.writeFileSync(productsFilePath, JSON.stringify(products,null,' '));
-
-			
-	
-			// res.redirect('/');
 	
 		},
 		destroy : (req, res) => {
@@ -205,40 +172,22 @@ const controller = {
 					id: req.params.id
 				}
 			})
+			.then((resultados)  => { 
+				fs.unlink(path.join(__dirname, '../../public/img/' + productos.img),(error) => {
+					(console.log(error))
+							
+					});
+			 })
 			.then(
 				res.redirect("/producto")
 			)
 
-		// 	let idProductoSeleccionado = req.params.id;
-        // 	let productoSeleccionado;
-
-        // 	for (let p of products){
-
-        //     if(p.id==idProductoSeleccionado){
-        //         productoSeleccionado=p;
-        //         break;
-        //     }
-        // }
-			
-		// 	let products2 = products.filter(function(element){
-				
-		// 		return element.id!=idProductoSeleccionado;
-		// 	})
-		// 	fs.unlink(path.join(__dirname, '../../public/img/' + productoSeleccionado.image), (error) => {
-		// 		(console.log(error))
-			
-		// 	});
-
-		// 	fs.writeFileSync(productsFilePath, JSON.stringify(products2,null,' '));
-	
-		// 	res.redirect('/');
 	
 	
 		},
 		
 		store: (req, res) => {
-			db.categorias.findAll()
-			.then(
+		
     		db.productos.create(
     	{ 
 			nombre:  req.body.nombre,
@@ -248,14 +197,17 @@ const controller = {
 			cosecha: req.body.cosecha,
 			volumen: req.body.volumen,
 			stock: req.body.stock,
-			categorias: req.body.categorias
+			id_categorias: req.body.categorias,
+			img: req.file.filename,
+			id_administrador: req.body.administrador,
+
 			
 
     	}
-   	 	))
-    	.then((resultados)  => { 
-        res.render('producto');
-     	});
+   	 	)
+			.then((resultados)  => { 
+				res.render('home');
+     	})
 
 
     	},

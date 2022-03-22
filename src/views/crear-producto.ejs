@@ -50,7 +50,7 @@
 						<input type="text" id="stock" name="stock" placeholder="Ej: 15" class="form-input">
 					</div>
 					<div class="col-12 col-md-6">
-						<label for="discount" class="form-label">Categoria:</label>
+						<label for="categorias" class="form-label">Categoria:</label>
 						<select name="categorias" class="form-label">
 							<% for (let i = 0; i < categorias.length; i++){%>
 								<% if (categorias[i].id == productos.id_categorias ){%>
@@ -85,9 +85,9 @@
 						</select>
 						
 					</div>
-					<!-- <div class="col-12">
+					<div class="col-12">
                         <input type="file" style="background-color: cornflowerblue; color:white; width: 400px; height: 20px;" name="img"></input>
-                    </div> -->
+                    </div>
 
                     <div class="col-12">
                         <button type="submit" class="buy-now-button">Guardar producto</button>

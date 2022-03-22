@@ -7,10 +7,10 @@
         <main>
                     
                 <div class="todo">
-                  <% for (let p of listaProductos) { %>
+                  <% for (let producto of listaProductos) { %>
                     <div class="container page-wrapper">
 
-                      <a href="/detail/<%=p.id%>">
+                      <a href="/detail/<%=producto.id%>">
                      
                         
                         
@@ -18,12 +18,12 @@
                           <div class="row">
                             <div class="el-wrapper">
                               <div class="box-up">
-                                <img class="img" src="/img/<%=p.imagen%>" alt="">
+                                <img class="img" src="/img/<%=producto.img%>" alt="">
                                 <div class="img-info">
                                   <div class="info-inner">
-                                    <span class="p-name"><p><%=p.nombre%></p></span>
+                                    <span class="p-name"><p><%=producto.nombre%></p></span>
                                   </div>
-                                  <div class="a-size"> Descuentos : <span class="discount"><%=p.blend%></span></div>
+                                  <div class="a-size"> Blend : <span class="discount"><%=producto.blend%></span></div>
                                 </div>
                               </div>
                       
@@ -33,7 +33,7 @@
                                 </div>
                       
                                 <a class="cart" href="#">
-                                  <span class="price"><p>$<%=p.precio%></p></span>
+                                  <span class="price"><p>$<%=producto.precio%></p></span>
                                  
                                   <span class="add-to-cart">
                                     <span class="txt">Agregar a carrito</span>

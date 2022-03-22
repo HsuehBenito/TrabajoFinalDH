@@ -57,7 +57,6 @@ const controller = {
 
             }
 
-            console.log("ver: ", listaProductos);
 
             res.render('producto',{listaProductos: listaProductos});
             

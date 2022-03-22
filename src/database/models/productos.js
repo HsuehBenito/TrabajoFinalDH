@@ -13,6 +13,7 @@ function productosData(sequelize, Datatypes){
       descripcion: {type: Datatypes.STRING(255)},
       stock: {type: Datatypes.INTEGER(255)},
       id_categorias: {type: Datatypes.INTEGER}, 
+      img: {type: Datatypes.STRING(255)},
     }
     
     let config = {tableName: "productos", camelCase: false, timestamps: false}; 
