@@ -50,6 +50,7 @@ const controller = {
                     descripcion: p.descripcion,
                     blend: p.blend,
                     cosecha: p.cosecha,
+                    img:p.img
                     
                 }
 
