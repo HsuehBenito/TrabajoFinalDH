@@ -34,7 +34,7 @@ router.get('/editar-producto/:id', usersController.edit);
 
 router.get('/carrito', usersController.carrito);
 // crear-edit
-//router.post('/crear-producto', usersController.crear); lo comentamos para ver si es que pisaba y cagaba todo.
+router.post('/crear-producto', usersController.crear);// lo comentamos para ver si es que pisaba y cagaba todo.
 router.put('/editar-producto/:id',uploadFile.single("img"), usersController.update); // agregamos uploadfile.single para ver si pega encima
 // delete
 router.delete('/delete/:id', usersController.destroy);

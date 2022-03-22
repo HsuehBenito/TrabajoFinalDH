@@ -119,6 +119,7 @@ const controller = {
 		res.render('carrito');
 	},
 	crear: (req,res) => {
+		
 		let pedidoCategorias = db.categorias.findAll()
 		let pedidoProducto = db.productos.findAll()
 		let pedidoAdmnistrador = db.administrador.findAll()
