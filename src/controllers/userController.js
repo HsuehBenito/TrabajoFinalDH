@@ -53,6 +53,7 @@ const controller = {
 		return res.render('formulario');
 	},
 	processRegister: function(req,res){
+		const resultValidation = validationResult(req)
 		let p = bcryptjs.hashSync(req.body.password, 10)
 		
 
@@ -63,6 +64,13 @@ const controller = {
 				telefono: req.body.telefono,
 				foto_perfil: req.file.filename
 		});
+		
+		if (resultValidation.errors.length > 0) {
+			return res.render('formulario', {
+				errors: resultValidation.mapped(),
+				oldData: req.body
+			});
+		}
 			return res.redirect('/user/login');
 
 	
@@ -70,32 +78,15 @@ const controller = {
 	
 		
 
-		const resultValidation = validationResult(req);
+		// const resultValidation = validationResult(req);
 
-		if (resultValidation.errors.length > 0) {
-			return res.render('formulario', {
-				errors: resultValidation.mapped(),
-				oldData: req.body
-			});
-		}
-		// function findByField  (field, text) {
-		// 	let allUsers = this.findAll();
-		// 	let userFound = allUsers.find(oneUser => oneUser[field] === text);
-		// 	return userFound;
-		// }
-		
-		// let userInDB = db.administrador.findAll
-
-		// if (userInDB) {
+		// if (resultValidation.errors.length > 0) {
 		// 	return res.render('formulario', {
-		// 		errors: {
-		// 			email: {
-		// 				msg: 'Este email ya está registrado'
-		// 			}
-		// 		},
+		// 		errors: resultValidation.mapped(),
 		// 		oldData: req.body
 		// 	});
-		//}
+		// }
+		
 
 	},
 	
@@ -129,8 +120,8 @@ const controller = {
 		let pedidoAdmnistrador = db.administrador.findAll()
         let pedidoProducto =  db.productos.findByPk(req.params.id)
         Promise.all([pedidoProducto, pedidoCategorias,pedidoAdmnistrador])
-		.then(function([producto, categorias,administrador]){
-			return res.render('editar-producto', {categorias : categorias, producto: producto, administrador:administrador})
+		.then(function([productos, categorias,administrador]){
+			return res.render('editar-producto', {categorias : categorias, producto: productos, administrador:administrador})
 		})
 	
         
@@ -147,22 +138,19 @@ const controller = {
 					cosecha: req.body.cosecha,
 					volumen: req.body.volumen,
 					stock: req.body.stock,
-					img: req.file.filename
+					id_categorias: req.body.categorias,
+					img: req.file.filename,
+					id_administrador: req.body.administrador,
 		
 				}, {where: {id : req.params.id}})
-				let productoSeleccionado = db.productos.findOne({where:{id: req.params.id}})
-				.then((resultados)  => { 
-					fs.unlink(path.join(__dirname, '../../public/img/' + productoSeleccionado.img),(error) => {
-						(console.log(error))
-
-						});
-				 })
-				 .then(res.render(home));
+				
+				 .then(res.render("home"));
 			
 		},
-		destroy : (req, res) => {
-			let productoSeleccionado = db.productos.findOne({where:{id: req.params.id}})
-			.then(
+		destroy : async (req, res) => {
+			
+			let productoSeleccionado = await db.productos.findOne({where:{id: req.params.id}})
+				
 			db.productos.destroy({
 				where : {
 					id: req.params.id
@@ -176,7 +164,7 @@ const controller = {
 			.then(
 				res.redirect("/producto")
 			)
-			)
+			
 		},
 		
 		store: (req, res) => {

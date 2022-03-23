@@ -15,11 +15,17 @@
 				<div class="row product-detail">
 					<div class="col-12 col-md-6">
 						<label for="name" class="form-label">Nombre del producto:</label>
-						<input type="text" id="name" name="nombre" placeholder="" class="form-input">
+						<input type="text" id="name" name="nombre" placeholder="Nombre del producto" class="form-input" 
+						 title="Debe tener al menos 5 caracteres." pattern = "[A-Za-z0-9]{5,40}"  required >
+						 <% if (locals.errors && errors.nombre) { %>
+							<div class="text-danger">
+								<%= errors.nombre.msg %> 
+							</div>
+						<% } %>
 					</div>
 					<div class="col-12 col-md-6">
 						<label for="price" class="form-label">Precio del producto:</label>
-						<input type="number" id="price" name="precio" placeholder="Ej: 5678" class="form-input">
+						<input type="number" id="price" name="precio" placeholder="Precio del producto" class="form-input">
 					</div>
 					<div class="col-12 col-md-6">
 						<label for="discount" class="form-label">Blend:</label>
@@ -43,7 +49,12 @@
 					</div>-->
 					<div class="col-12">
 						<label for="descripcion" class="form-label">Descripción:</label>
-						<textarea name="descripcion" id="descripcion" class="form-input"></textarea>
+						<textarea name="descripcion" id="descripcion" class="form-input" minlength="20"></textarea>
+						<% if (locals.errors && errors.descripcion) { %>
+							<div class="text-danger">
+								<%= errors.descripcion.msg %> 
+							</div>
+						<% } %>
 					</div>
 					<div class="col-12 col-md-6">
 						<label for="stock" class="form-label">Stock:</label>
@@ -87,6 +98,11 @@
 					</div>
 					<div class="col-12">
                         <input type="file" style="background-color: cornflowerblue; color:white; width: 400px; height: 20px;" name="img"></input>
+						<% if (locals.errors && errors.img) { %>
+							<div class="text-danger">
+								<%= errors.img.msg %> 
+							</div>
+						<% } %>
                     </div>
 
                     <div class="col-12">

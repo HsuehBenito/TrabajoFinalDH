@@ -19,11 +19,11 @@
 									type="text" 
 									name="nombre_completo" 
 									class="form-control <%= locals.errors && errors.fullName ? 'is-invalid' : null %>"
-									value="<%= locals.oldData ? oldData.fullName : null %>"
+									value="<%= locals.oldData ? oldData.nombre_completo : null %>"
 								>
-								<% if (locals.errors && errors.fullName) { %>
+								<% if (locals.errors && errors.nombre_completo) { %>
 									<div class="text-danger">
-										<%= errors.fullName.msg %> 
+										<%= errors.nombre_completo.msg %> 
 									</div>
 								<% } %>
 							</div>
@@ -82,9 +82,9 @@
 									name="foto_perfil"
 									class="form-control <%= locals.errors && errors.avatar ? 'is-invalid' : null %>"
 								>
-								<% if (locals.errors && errors.avatar) { %>
+								<% if (locals.errors && errors.foto_perfil) { %>
 									<div class="text-danger">
-										<%= errors.avatar.msg %>
+										<%= errors.foto_perfil.msg %>
 									</div>
 								<% } %>
 							</div>

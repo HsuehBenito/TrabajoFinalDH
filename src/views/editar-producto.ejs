@@ -10,11 +10,16 @@
 			</div>
 		</div>
 		<div class="col-12">
-			<form action="/user/editar-producto/<%=producto.id%>?_method=PUT" method="POST"> 
+			<form action="/user/editar-producto/<%=producto.id%>?_method=PUT" method="POST" enctype="multipart/form-data"> 
 				<div class="row product-detail">
 					<div class="col-12 col-md-6">
 						<label for="nombre" class="form-label">Nombre del producto: </label>
 						<input type="text" id="nombre" name="nombre" placeholder="" value="<%= producto.nombre %>" class="form-input">
+						<% if (locals.errors && errors.nombre) { %>
+							<div class="text-danger">
+								<%= errors.nombre.msg %> 
+							</div>
+						<% } %>
 					</div>
 					<div class="col-12 col-md-6">
 						<label for="precio" class="form-label">Precio del producto: </label>
@@ -75,10 +80,20 @@
 					<div class="col-12">
 						<label for="descripcion" class="form-label">Descripción:</label>
 						<textarea name="descripcion" id="descripcion" class="form-input" value="<%= producto.descripcion %>"></textarea>
+						<% if (locals.errors && errors.descripcion) { %>
+							<div class="text-danger">
+								<%= errors.descripcion.msg %> 
+							</div>
+						<% } %>
 					</div>
 					<div class="col-12">
-                        <input type="file" style="background-color: cornflowerblue; color:white; width: 400px; height: 20px;" name="img" value="<%= producto.img %>"  ></input>
-                    </div>
+                        <input type="file" style="background-color: cornflowerblue; color:white; width: 400px; height: 20px;" name="img"  ></input>
+						<% if (locals.errors && errors.img) { %>
+							<div class="text-danger">
+								<%= errors.img.msg %>
+							</div>
+						<% } %>
+                    </div> 
 
                     <div class="col-12">
                         <button type="submit" class="buy-now-button">Guardar producto</button>

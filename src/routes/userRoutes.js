@@ -7,7 +7,9 @@ const usersController = require('../controllers/userController');
 // Middlewares
 const userUploadFile = require('../middlewares/usuariosMulter');
 const productosUploadFile = require('../middlewares/productosMulter');
-const validations = require('../middlewares/validateRegisterMiddleware');
+const registerValidations = require('../middlewares/validateRegisterMiddleware');
+const loginValidations = require('../middlewares/validateLoginMiddleware');
+const productosValidations = require('../middlewares/validateProductosMiddleware');
 const guestMiddleware = require('../middlewares/guestMiddleware');
 const authMiddleware = require('../middlewares/authMiddleware');
 
@@ -15,13 +17,13 @@ const authMiddleware = require('../middlewares/authMiddleware');
 router.get('/register', guestMiddleware, usersController.register);
 
 // Procesar el registro
-router.post('/register', userUploadFile.single('foto_perfil'),  usersController.processRegister); //validations
+router.post('/register', userUploadFile.single('foto_perfil'), registerValidations, usersController.processRegister);
 
 // Formulario de login
 router.get('/login', guestMiddleware, usersController.login);
 
 // Procesar el login
-router.post('/login', usersController.loginProcess);
+router.post('/login', usersController.loginProcess);//loginValidations
 
 // Perfil de Usuario
 router.get('/profile', authMiddleware, usersController.profile);
@@ -35,10 +37,10 @@ router.get('/crear-producto', usersController.crear);
 router.get('/carrito', usersController.carrito);
 // edit
 router.get('/editar-producto/:id', usersController.edit);
-router.put('/editar-producto/:id',productosUploadFile.single("img"), usersController.update); // agregamos uploadfile.single para ver si pega encima
+router.put('/editar-producto/:id', productosValidations, productosUploadFile.single("img"), usersController.update); // agregamos uploadfile.single para ver si pega encima
 // delete
 router.delete('/delete/:id', usersController.destroy);
 // multer
-router.post('/crear-producto', productosUploadFile.single('img'),usersController.store); 
+router.post('/crear-producto',productosValidations, productosUploadFile.single('img'),usersController.store); 
 
 module.exports = router;

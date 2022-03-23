@@ -9,6 +9,7 @@ const storage = multer.diskStorage({
 		let fileName = `${Date.now()}_img${path.extname(file.originalname)}`;
 		cb(null, fileName);
 	}
+	
 })
 
 const productosUploadFile = multer({ storage });
