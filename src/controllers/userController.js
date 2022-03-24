@@ -127,8 +127,8 @@ const controller = {
         
 		},
 
-		update: (req, res) => {
-			
+		update: async (req, res) => {
+			let productoSeleccionado = await db.productos.findOne({where:{id: req.params.id}})
 			db.productos.update(
 				{ 
 					nombre:  req.body.nombre,
@@ -143,7 +143,12 @@ const controller = {
 					id_administrador: req.body.administrador,
 		
 				}, {where: {id : req.params.id}})
-				
+				.then((resultados)  => { 
+					fs.unlink(path.join(__dirname, '../../public/img/' + productoSeleccionado.img),(error) => {
+						(console.log(error))
+						});
+				 })
+
 				 .then(res.render("home"));
 			
 		},
