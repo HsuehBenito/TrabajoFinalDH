@@ -9,8 +9,8 @@
 		<div class="row justify-content-center">
 			<div class="col-md-10">
 				<h2>Formulario de registro</h2>
-	
-				<form method="POST" action="/user/register" enctype="multipart/form-data">
+				
+				<form method="POST" action="/user/register" enctype="multipart/form-data" class="formulario">
 					<div class="row">
 						<div class="col-md-6 my-1">
 							<div class="form-group">
@@ -18,7 +18,7 @@
 								<input 
 									type="text" 
 									name="nombre_completo" 
-									class="form-control <%= locals.errors && errors.fullName ? 'is-invalid' : null %>"
+									class="form-control <%= locals.errors && errors.fullName ? 'is-invalid' : null %> nombre_completo"
 									value="<%= locals.oldData ? oldData.nombre_completo : null %>"
 								>
 								<% if (locals.errors && errors.nombre_completo) { %>
@@ -34,7 +34,7 @@
 								<input 
 									type="text" 
 									name="email" 
-									class="form-control <%= locals.errors && errors.email ? 'is-invalid' : null %>"
+									class="form-control <%= locals.errors && errors.email ? 'is-invalid' : null %> email"
 									value="<%= locals.oldData ? oldData.email : null %>"
 								>
 								<% if (locals.errors && errors.email) { %>
@@ -50,7 +50,7 @@
 								<input 
 									type="password" 
 									name="password" 
-									class="form-control <%= locals.errors && errors.password ? 'is-invalid' : null %>"
+									class="form-control <%= locals.errors && errors.password ? 'is-invalid' : null %> password"
 								>
 								<% if (locals.errors && errors.password) { %>
 									<div class="text-danger">
@@ -65,7 +65,7 @@
 								<input 
 									type="number" 
 									name="telefono" 
-									class="form-control <%= locals.errors && errors.telefono ? 'is-invalid' : null %>"
+									class="form-control <%= locals.errors && errors.telefono ? 'is-invalid' : null %> telefono"
 								>
 								<% if (locals.errors && errors.telefono) { %>
 									<div class="text-danger">
@@ -80,7 +80,7 @@
 								<input 
 									type="file" 
 									name="foto_perfil"
-									class="form-control <%= locals.errors && errors.avatar ? 'is-invalid' : null %>"
+									class="form-control <%= locals.errors && errors.avatar ? 'is-invalid' : null %> foto_perfil"
 								>
 								<% if (locals.errors && errors.foto_perfil) { %>
 									<div class="text-danger">
@@ -94,11 +94,17 @@
 						</div>
 					</div>
 				</form>
+				<section class="errores">
+					<ul>
+					
+					</ul>
+				   </section>
 			</div>
 		</div>
 	</div>
 	<!-- //Register-Form -->
-	<script src=“js/main.js”></script>
+	
 	<%- include('partials/footer'); %>
+	<script src="/js/main.js"></script>
 </body>
 </html>

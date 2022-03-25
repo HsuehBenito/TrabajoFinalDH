@@ -5,10 +5,8 @@ const {
 	validationResult
 } = require('express-validator');
 
-//const User = require('../database/modelos-user/User.js');
-//const productsFilePath = path.join(__dirname, '../database/productosBaseDatos.json');
 const db = require('../database/models/');
-//const { generateId } = require('../database/modelos-user/User');
+
 const controller = {
 	login: (req, res) => {
 		return res.render('login');
@@ -16,8 +14,8 @@ const controller = {
 	loginProcess: (req, res) => {
 		let userToLogin = db.administrador.findOne({where:{email: req.body.email}})
 		.then((userToLogin) => {
-            console.log(userToLogin)
-		console.log(userToLogin.password)
+        //     console.log(userToLogin)
+		// console.log(userToLogin.password)
         
 		
 		if(userToLogin) {
@@ -40,14 +38,14 @@ const controller = {
 			 	}
 			 });
 		}
-
+		else{
 		return res.render('login', {
 			errors: {
 				email: {
 					msg: 'No se encuentra este email en nuestra base de datos'
 				}
 			}
-		});});
+		});}});
 	},
 	register: (req, res) => {
 		return res.render('formulario');
@@ -56,7 +54,14 @@ const controller = {
 		const resultValidation = validationResult(req)
 		let p = bcryptjs.hashSync(req.body.password, 10)
 		
-
+		if (resultValidation.errors.length > 0) {
+			return res.render('formulario', {
+				errors: resultValidation.mapped(),
+				oldData: req.body
+				
+			});
+			
+		}else{
 		db.administrador.create({
 				nombre_completo : req.body.nombre_completo,
 				email: req.body.email,
@@ -65,28 +70,8 @@ const controller = {
 				foto_perfil: req.file.filename
 		});
 		
-		if (resultValidation.errors.length > 0) {
-			return res.render('formulario', {
-				errors: resultValidation.mapped(),
-				oldData: req.body
-			});
-		}
-			return res.redirect('/user/login');
-
-	
-			
-	
 		
-
-		// const resultValidation = validationResult(req);
-
-		// if (resultValidation.errors.length > 0) {
-		// 	return res.render('formulario', {
-		// 		errors: resultValidation.mapped(),
-		// 		oldData: req.body
-		// 	});
-		// }
-		
+			return res.redirect('/user/login');}
 
 	},
 	
@@ -103,6 +88,8 @@ const controller = {
 		req.session.destroy();
 		return res.redirect('/');
 	},
+	
+
 	carrito: (req, res) => {
 		res.render('carrito');
 	},
@@ -130,7 +117,8 @@ const controller = {
 		update: async (req, res) => {
 			let productoSeleccionado = await db.productos.findOne({where:{id: req.params.id}})
 			db.productos.update(
-				{ 
+				{ 	
+					id : req.params.id,
 					nombre:  req.body.nombre,
 					precio:  req.body.precio,
 					descripcion: req.body.descripcion,
