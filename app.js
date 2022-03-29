@@ -5,6 +5,7 @@ const methodOverride = require('method-override');
 const app = express();
 const path = require('path');
 const userLoggedMiddleware = require('./src/middlewares/userLoggedMiddleware');
+const fetch = require('node-fetch');
 
 app.use(session({
 	secret: "ILSECRETOLOCO!@#123",
