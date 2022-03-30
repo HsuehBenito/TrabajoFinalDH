@@ -1,13 +1,26 @@
-const fetch = require('node-fetch');
+// import fetch from 'node-fetch';
 
-module.exports = {
-    read: (req,res) => {
-        fetch('')
-    }
-}
+// const body = {a: 1};
 
+// const response = await fetch('https://httpbin.org/post', {
+// 	method: 'post',
+// 	body: JSON.stringify(body),
+// 	headers: {'Content-Type': 'application/json'}
+// });
+// const data = await response.json();
 
-
+console.log(data);
+//o 
+// const fetch = require('node-fetch');
+// module.exports = {
+//  read: (req, res) => {
+//  fetch('https://restcountries.eu/rest/v2/all')
+//  .then(response => response.json())
+//  .then(countries => {
+//  res.render('countries' , { countries })
+//  })
+//  }
+// } DEFINIR CUAL USAR
 
 
 
