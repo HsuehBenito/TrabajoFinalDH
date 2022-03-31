@@ -1,33 +1,30 @@
-//validacion formulario.ejs
-// window.addEventListener('load', function() {
+// validacion formulario.ejs
+window.addEventListener('load', function() {
     let formulario = document.querySelector('.formulario');
     console.log(formulario)
     formulario.addEventListener('submit', function(event) {
-      debugger
-      let errores = [];
+      event.preventDefault();
+      // let errores = [];
       let nombre = document.querySelector('.nombre_completo');
-      let password = document.querySelector('.password');
+      
       if(nombre.value == ""){
-        errores.push("El campo nombre está vacío");
+        alert("El campo nombre está vacío");
       }
-      if(password.value.length <= 4){
-        errores.push( 'El password debe ser mayor a 4 caracteres y contener una letra mayuscula y un numero');
-      }
-      if(errores.length > 0){
-        event.preventDefault();
-        let ulErrores = document.querySelector(".errores ul");
-        errores.forEach(error => {
-        ulErrores.innerHTML += <li>${error}</li>
-      });
-      
-}
-      
-      }  
-    
-)
-  
 
-  // });
+      let password = document.querySelector('.password');
+      var passformat = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$";
+      if(password.value.length < 4 && password.match(passformat)){
+        alert( 'El password debe ser mayor a 4 caracteres y contener una letra mayuscula y un numero');
+      }
+      });
+      // if(errores.length > 0){
+        
+      //   let ulErrores = document.querySelector(".errores ul");
+      //   errores.forEach(error => {
+      //   ulErrores.innerHTML += <li>${error}</li>
+      
+
+  });
 
   // sessionstorage
 //En local storage solo se puede guardar texto de modo que si queremos guardar arrays y objetos

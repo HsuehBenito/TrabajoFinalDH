@@ -8,7 +8,7 @@ const usersController = require('../controllers/userController');
 const userUploadFile = require('../middlewares/usuariosMulter');
 const productosUploadFile = require('../middlewares/productosMulter');
 const registerValidations = require('../middlewares/validateRegisterMiddleware');
-// const loginValidations = require('../middlewares/validateLoginMiddleware');
+const loginValidations = require('../middlewares/validateLoginMiddleware');
 const productosValidations = require('../middlewares/validateProductosMiddleware');
 const guestMiddleware = require('../middlewares/guestMiddleware');
 const authMiddleware = require('../middlewares/authMiddleware');
@@ -17,13 +17,13 @@ const authMiddleware = require('../middlewares/authMiddleware');
 router.get('/register', guestMiddleware, usersController.register);
 
 // Procesar el registro
-router.post('/register',   userUploadFile.single('foto_perfil'), usersController.processRegister);//registerValidations,
+router.post('/register', registerValidations,  userUploadFile.single('foto_perfil'), usersController.processRegister);//
 
 // Formulario de login
 router.get('/login', guestMiddleware, usersController.login);
 
 // Procesar el login
-router.post('/login', usersController.loginProcess);//loginValidations
+router.post('/login', loginValidations,usersController.loginProcess);//
 
 // Perfil de Usuario
 router.get('/profile', authMiddleware, usersController.profile);
@@ -41,6 +41,6 @@ router.put('/editar-producto/:id', productosValidations, productosUploadFile.sin
 // delete
 router.delete('/delete/:id', usersController.destroy);
 // multer
-router.post('/crear-producto', productosUploadFile.single('img'),usersController.store);// productosValidations,
+router.post('/crear-producto',productosValidations, productosUploadFile.single('img'),usersController.store);// 
 
 module.exports = router;
