@@ -32,7 +32,7 @@
                                   <span class="price"><p>$<%=producto.precio%></p></span>
                                  
                                   <span class="add-to-cart">
-                                    <button class="addCarrito">Agregar a carrito</button>
+                                    <button class="addCarrito" id="<%= producto.id %>">Agregar a carrito</button>
                                   </span>
                                 </a>
                               </div>
@@ -54,6 +54,7 @@
                       </div>
                     </div>
                     <% } %>
+                    <script src="/js/botonCarrito.js"></script>
         </main>
     </body>
 </html>
