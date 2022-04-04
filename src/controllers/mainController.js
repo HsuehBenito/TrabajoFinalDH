@@ -1,8 +1,9 @@
-const fs = require('fs');
-const path = require('path');
-const productsFilePath = path.join(__dirname, '../database/productosBaseDatos.json');
-let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+
+const { Sequelize } = require('../database/models/');
+
 const db = require('../database/models/')
+const Op = db.Sequelize.Op;
+
 const controller = {
 	home: (req, res) => {
 		res.render('home');
@@ -68,6 +69,27 @@ const controller = {
 
 
     },
+    api:  (req,res) => {
+         db.productos
+        .findAll()
+        .then(productos => {
+            return res.status(200).json({
+                total: productos.length,
+                data: productos,
+                status:200
+            })
+        })
+    },
+    show:  (req,res) => {
+        db.productos
+       .findByPk(req.params.id)
+       .then(producto => {
+           return res.status(200).json({
+               data: producto,
+               status:200
+           })
+       })
+   }
 	
 };
 

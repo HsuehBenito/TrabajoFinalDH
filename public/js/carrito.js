@@ -11,16 +11,16 @@
 
 console.log(data);
 //o 
-// const fetch = require('node-fetch');
-// module.exports = {
-//  read: (req, res) => {
-//  fetch('https://restcountries.eu/rest/v2/all')
-//  .then(response => response.json())
-//  .then(countries => {
-//  res.render('countries' , { countries })
-//  })
-//  }
-// } DEFINIR CUAL USAR
+const fetch = require('node-fetch');
+module.exports = {
+ read: (req, res) => {
+ fetch('https://restcountries.eu/rest/v2/all')
+ .then(response => response.json())
+ .then(countries => {
+ res.render('countries' , { countries })
+ })
+ }
+} 
 
 
 
