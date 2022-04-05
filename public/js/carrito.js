@@ -1,16 +1,16 @@
-import fetch from 'node-fetch';
+// import fetch from 'node-fetch';
 
-const body = {a: 1};
+// const body = {a: 1};
 
-const response = await fetch('http://localhost:3003/api', {
-	method: 'post',
-	body: JSON.stringify(body),
-	headers: {'Content-Type': 'application/json'}
-});
-const data = await response.json();
+// const response = await fetch('http://localhost:3003/api', {
+// 	method: 'post',
+// 	body: JSON.stringify(body),
+// 	headers: {'Content-Type': 'application/json'}
+// });
+// const data = await response.json();
 
-console.log(data);
-//o 
+// console.log(data);
+// //o 
 
 window.addEventListener('load', function() {
   let nombre = document.querySelector('.nombre');

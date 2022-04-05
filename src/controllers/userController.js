@@ -1,5 +1,6 @@
 const bcryptjs = require('bcryptjs');
 const fs = require('fs');
+const fetch = require('node-fetch');
 const path = require('path');
 const {
 	validationResult
@@ -90,9 +91,9 @@ const controller = {
 	},
 	
 
-	carrito: (req, res) => {
-		res.render('carrito');
-	},
+	// carrito: (req, res) => {
+	// 	res.render('carrito');
+	// },
 	crear: (req,res) => {
 		let pedidoCategorias = db.categorias.findAll()
 		let pedidoProducto = db.productos.findAll()
@@ -179,6 +180,30 @@ const controller = {
 				res.render('home');
      	})
     	},
+
+		carrito: async (req, res) => {
+			fetch ('http://localhost:3003/api')
+				.then(response => response.json())
+				.then(JSON.parse('{productos}') => {
+					let listaProductos=[];
+
+					for (p of productos){
+		
+		
+						let objaux={
+							id: p.id,
+							nombre:  p.nombre,
+							precio:  p.precio,
+							img:p.img
+						}
+		
+						listaProductos.push(objaux);
+		
+					}
+					return res.render('carrito', {productos: productos});
+				})
+				
+		}
 }
 
 module.exports = controller;

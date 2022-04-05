@@ -31,21 +31,27 @@
               <li class="subtotal">Subtotal</li>
             </ul>
           </div>
+          <% for (let producto of listaProductos) { %>
+            
+          
           <div class="basket-product">
             <div class="item">
               <div class="product-image">
-                <img src="https://i1.wp.com/codigoespagueti.com/wp-content/uploads/2018/05/pikachu.jpg?resize=1080%2C608&quality=80&ssl=1" alt="Placholder Image 2" class="imagen">
+                <img src="/img/<%=producto.img%>" class="imagen">
               </div>
               <div class="product-details">
-                <h1>nombre del producto </h1>
+                <h1><%= producto.nombre%></h1>
                 
               </div>
             </div>
-            <div class="precio">26.00</div>
+            <div class="precio"><%= producto.precio%></div>
+            <% } %>
             <div class="quantity">
               <input type="number" value="4" min="1" class="cantidad">
             </div>
             <div class="subtotal">4000</div>
+           
+          
             <div class="remove">
               <button>Remover</button>
             </div>
