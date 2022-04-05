@@ -18,9 +18,24 @@ window.addEventListener('load', function() {
   let precio = document.querySelector('.precio');
   let cantidad = document.querySelector('.cantidad');
   let subtotal = document.querySelector('.subtotal');
+  let id = document.querySelector('.esconderId');
+  let contenedor = document.querySelector('.contenedorProducto');
 
   let arrayProdSelec = JSON.parse(localStorage.getItem('arrayNew'))
   console.log(arrayProdSelec);
+  
+  for(i=0; i<arrayProdSelec.length; i++){
+    
+    if(id.value == arrayProdSelec[i]){
+
+      console.log(id.value);
+      contenedor.style.display= "block"
+    }else{
+      
+      contenedor.style.display= "none"
+    }
+  }
+
   
 })
   

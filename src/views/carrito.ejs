@@ -32,30 +32,26 @@
             </ul>
           </div>
           <% for (let producto of listaProductos) { %>
-            
-          
-          <div class="basket-product">
+          <h4 class="esconderId"><%= producto.id%></h4>
+          <div class="basket-product  ">
             <div class="item">
               <div class="product-image">
                 <img src="/img/<%=producto.img%>" class="imagen">
               </div>
               <div class="product-details">
                 <h1><%= producto.nombre%></h1>
-                
               </div>
             </div>
             <div class="precio"><%= producto.precio%></div>
-            <% } %>
             <div class="quantity">
               <input type="number" value="4" min="1" class="cantidad">
             </div>
             <div class="subtotal">4000</div>
-           
-          
             <div class="remove">
               <button>Remover</button>
             </div>
           </div>
+          <% } %>
         <aside>
           <div class="summary">
             <div class="summary-total-items"><span class="total-items"></span> Items in your Bag</div>

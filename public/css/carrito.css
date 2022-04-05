@@ -36,6 +36,9 @@ h1 {
   margin: 0;
   padding: 0;
 }
+.esconderId{
+  display: none;
+}
 
 input,
 button {

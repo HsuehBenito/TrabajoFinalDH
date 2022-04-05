@@ -181,13 +181,16 @@ const controller = {
      	})
     	},
 
-		carrito: async (req, res) => {
+		carrito:  (req, res) => {
 			fetch ('http://localhost:3003/api')
 				.then(response => response.json())
-				.then(JSON.parse('{productos}') => {
+				.then(productos =>{
+					
+					
+					
 					let listaProductos=[];
 
-					for (p of productos){
+					for (p of productos.data){
 		
 		
 						let objaux={
@@ -200,10 +203,9 @@ const controller = {
 						listaProductos.push(objaux);
 		
 					}
-					return res.render('carrito', {productos: productos});
+					return res.render('carrito', {listaProductos});
 				})
-				
 		}
+		
 }
-
 module.exports = controller;
