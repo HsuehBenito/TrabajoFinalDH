@@ -288,7 +288,7 @@ body {
 }
 @media (min-width: 1200px){
   .todo{
-    border: dotted 4px red;
+    
     width: 100%;
     display: flex;
     flex-direction:row;
