@@ -12,11 +12,11 @@
                       <% if (!locals.isLogged) { %>
                       <li><a href="/user/login">Ingresar</a></li>
                       <li><a href="/user/register">Registrarse</a></li>
+                      <li><a href="/user/carrito">Mis compras</a></li>
                       <% } %>
                       
                       <% if (locals.isLogged) { %>
-                    <li><a href="/user/crear-producto">Crear Producto</a></li>
-                      <li><a href="/user/carrito">Mis compras</a></li>
+                      <li><a href="/user/crear-producto">Crear Producto</a></li>
                       <li><a href="/user/profile">Perfil</a></li>
                       <li><a href="/user/logout">Logout</a></li>
                       <% } %>

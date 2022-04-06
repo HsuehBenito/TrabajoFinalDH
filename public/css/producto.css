@@ -42,7 +42,7 @@ body {
 
 .page-wrapper {
   height: 100%;
-  display: table;
+  display: table; 
 }
 
 .page-wrapper .page-inner {
@@ -288,6 +288,8 @@ body {
 }
 @media (min-width: 1200px){
   .todo{
+    border: dotted 4px red;
+    width: 100%;
     display: flex;
     flex-direction:row;
 }

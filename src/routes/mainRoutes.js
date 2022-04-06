@@ -9,6 +9,6 @@ router.get('/crear-producto', mainController.home);
 router.get('/producto', mainController.index); 
 router.get('/detail/:id', mainController.detail);
 router.get('/api', mainController.api);
-router.get('/api/:id', mainController.show);
+// router.get('/api/:id', mainController.show);
 
 module.exports = router;

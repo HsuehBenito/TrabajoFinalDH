@@ -5,7 +5,7 @@ window.addEventListener('load', function() {
     botonCarrito.addEventListener('click', function(event){
         
         if(localStorage.getItem('arrayNew')== null){
-
+            
             let arrayNew = []
             arrayNew.push(event.target.id);
             localStorage.setItem('arrayNew', JSON.stringify(arrayNew))

@@ -109,6 +109,7 @@ aside {
 
 .basket {
   width: 70%;
+  
 }
 
 .basket-module {
@@ -250,7 +251,8 @@ aside {
   border: 1px solid #aaa;
   padding: 1rem;
   position: fixed;
-  width: 250px;
+  margin-left: 800px;
+  width: 20%;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -384,8 +386,8 @@ aside {
     padding: 0;
   }
   .summary {
-    margin-top: 1.25rem;
-    position: relative;
+    margin-top: 0;
+    
   }
 }
 
@@ -393,14 +395,20 @@ aside {
   aside {
     padding: 0 1rem 0 0;
   }
-  .summary {
-    width: 28%;
-  }
+  /* .summary {
+    justify-content: center;
+    vertical-align: bottom;
+    display: inline-block;
+  } */
 }
 
 @media screen and (max-width: 960px) {
   main {
     width: 100%;
+  }
+  .summary{
+    max-height: 20%;
+    position:static
   }
   .product-details {
     padding: 0 1rem;

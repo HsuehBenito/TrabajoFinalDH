@@ -91,9 +91,9 @@ const controller = {
 	},
 	
 
-	// carrito: (req, res) => {
-	// 	res.render('carrito');
-	// },
+	carrito: (req, res) => {
+		res.render('carrito');
+	},
 	crear: (req,res) => {
 		let pedidoCategorias = db.categorias.findAll()
 		let pedidoProducto = db.productos.findAll()
@@ -181,31 +181,31 @@ const controller = {
      	})
     	},
 
-		carrito:  (req, res) => {
-			fetch ('http://localhost:3003/api')
-				.then(response => response.json())
-				.then(productos =>{
+		// carrito:  (req, res) => {
+		// 	fetch ('http://localhost:3003/api')
+		// 		.then(response => response.json())
+		// 		.then(productos =>{
 					
 					
 					
-					let listaProductos=[];
+		// 			let listaProductos=[];
 
-					for (p of productos.data){
+		// 			for (p of productos.data){
 		
 		
-						let objaux={
-							id: p.id,
-							nombre:  p.nombre,
-							precio:  p.precio,
-							img:p.img
-						}
+		// 				let objaux={
+		// 					id: p.id,
+		// 					nombre:  p.nombre,
+		// 					precio:  p.precio,
+		// 					img:p.img
+		// 				}
 		
-						listaProductos.push(objaux);
+		// 				listaProductos.push(objaux);
 		
-					}
-					return res.render('carrito', {listaProductos});
-				})
-		}
+		// 			}
+		// 			return res.render('carrito', {listaProductos});
+		// 		})
+		// }
 		
 }
 module.exports = controller;

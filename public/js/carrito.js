@@ -1,4 +1,4 @@
-// import fetch from 'node-fetch';
+// import fetch from 'fetch';
 
 // const body = {a: 1};
 
@@ -20,25 +20,54 @@ window.addEventListener('load', function() {
   let subtotal = document.querySelector('.subtotal');
   let id = document.querySelector('.esconderId');
   let contenedor = document.querySelector('.contenedorProducto');
+  let contenedorGrande = document.querySelector('.contenedorGrande')
+  var container = document.getElementById("container");
+
+// for (var i = 0; i < array.length; i++) {
+//     container.innerHTML += '<div class="box"></div>';
+// }
+// foreach(array as value){
+//   $("#container").append('<div class="box"></div>')
+// }
 
   let arrayProdSelec = JSON.parse(localStorage.getItem('arrayNew'))
   console.log(arrayProdSelec);
-  
-  for(i=0; i<arrayProdSelec.length; i++){
-    
-    if(id.value == arrayProdSelec[i]){
 
-      console.log(id.value);
-      contenedor.style.display= "block"
-    }else{
-      
-      contenedor.style.display= "none"
-    }
-  }
+  fetch ('http://localhost:3003/api')
+				.then(response => response.json())
+				.then(productos =>{
+					
+					
+					
+					let listaProductos=[];
+
+					for (p of productos.data){
+            for(i of arrayProdSelec){
+              if(i == p.id){
+                let objaux={
+                  id: p.id,
+                  nombre:  p.nombre,
+                  precio:  p.precio,
+                  img: p.img
+                }
+        
+                listaProductos.push(objaux);
+                break
+              }
+            }
+					}
+          for (a of listaProductos){
+            contenedorGrande.appendChild(container)
+          nombre.innerHTML = a.nombre
+          precio.innerHTML = a.precio
+          imagen.setAttribute("src", `/img/`+ a.img );
+        }
+  
+ 
 
   
 })
-  
+})
 //   module.exports = {
 //   read: (req, res) => {
 //  fetch('http://localhost:3003/api')}
