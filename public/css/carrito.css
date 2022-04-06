@@ -341,6 +341,9 @@ aside {
   height: 34px;
   width: 100%;
 }
+.botonVaciar{
+  display: row;
+}
 
 @media screen and (max-width: 640px) {
   aside,
@@ -408,7 +411,7 @@ aside {
   }
   .summary{
     max-height: 20%;
-    position:static
+    position:fixed
   }
   .product-details {
     padding: 0 1rem;

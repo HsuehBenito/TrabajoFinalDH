@@ -19,19 +19,18 @@ window.addEventListener('load', function() {
   let cantidad = document.querySelector('.cantidad');
   let subtotal = document.querySelector('.subtotal');
   let id = document.querySelector('.esconderId');
-  let contenedor = document.querySelector('.contenedorProducto');
+  let contenedorProducto = document.querySelector('.contenedorProducto');
   let contenedorGrande = document.querySelector('.contenedorGrande')
-  var container = document.getElementById("container");
+  let botonVaciar = document.querySelector('.botonVaciar')
 
-// for (var i = 0; i < array.length; i++) {
-//     container.innerHTML += '<div class="box"></div>';
-// }
-// foreach(array as value){
-//   $("#container").append('<div class="box"></div>')
-// }
 
   let arrayProdSelec = JSON.parse(localStorage.getItem('arrayNew'))
   console.log(arrayProdSelec);
+
+  botonVaciar.addEventListener('click',function(){
+    localStorage.removeItem('arrayNew');
+    location.reload();
+  })
 
   fetch ('http://localhost:3003/api')
 				.then(response => response.json())
@@ -57,13 +56,29 @@ window.addEventListener('load', function() {
             }
 					}
           for (a of listaProductos){
-            contenedorGrande.appendChild(container)
-          nombre.innerHTML = a.nombre
-          precio.innerHTML = a.precio
-          imagen.setAttribute("src", `/img/`+ a.img );
+            nombre.innerHTML = a.nombre
+            precio.innerHTML = a.precio
+            imagen.setAttribute("src", `/img/`+ a.img );
+            contenedorGrande.appendChild(contenedorProducto.cloneNode(true))
         }
   
- 
+      //   window.addEventListener('load', function() {
+      //     let array = [1,2,3]
+      //     let cajaGrande = document.querySelector(".cajaGrande")
+      //     let cajaChica = document.querySelector(".cajaChica")
+      //     let boton = document.querySelector(".clonar")
+      //     let parrafo = document.querySelector(".parrafo")
+      //     console.log("toy copiando");
+      
+      //     for (i=0; i < array.length; i++){
+      //         parrafo.innerHTML = "soy el numero"+ i
+      //         cajaGrande.append(cajaChica.cloneNode(true))
+              
+      //     }
+      
+          
+      
+      // })
 
   
 })

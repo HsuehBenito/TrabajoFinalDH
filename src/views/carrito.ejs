@@ -23,6 +23,9 @@
             <input id="promo-code" type="text" name="promo-code" maxlength="5" class="promo-code-field">
             <button class="promo-code-cta">Aplicar</button>
           </div>
+          <div class="contenedor-boton-clear">
+            <button type="button" class="botonVaciar btn btn-warning">Vaciar Carrito</button>
+          </div>
           <div class="basket-labels">
             <ul>
               <li class="item item-heading">Item</li>
@@ -33,25 +36,26 @@
           </div>
           
           <div class="contenedorGrande">
-            <div class="contenedor">
-              <div class="basket-product contenedorProducto">
+            
+            <div class="basket-product contenedorProducto">
               <div class="item">
                 <div class="product-image">
-                <img src="" class="imagen">
+                  <img src="" class="imagen">
+                </div>
+                <div class="product-details">
+                  <h1 class="nombre"></h1>
+                </div>
               </div>
-              <div class="product-details">
-                <h1 class="nombre"></h1>
+              <div class="precio"></div>
+              <div class="quantity">
+                <input type="number" value="4" min="1" class="cantidad">
+              </div>
+              <div class="subtotal"></div>
+              <div class="remove">
+                <button>Remover</button>
               </div>
             </div>
-            <div class="precio"></div>
-            <div class="quantity">
-              <input type="number" value="4" min="1" class="cantidad">
-            </div>
-            <div class="subtotal">4000</div>
-            <div class="remove">
-              <button>Remover</button>
-            </div>
-            </div>
+            
           </div>
         </div>
         <aside>
