@@ -1,31 +1,10 @@
-// import fetch from 'fetch';
-
-// const body = {a: 1};
-
-// const response = await fetch('http://localhost:3003/api', {
-// 	method: 'post',
-// 	body: JSON.stringify(body),
-// 	headers: {'Content-Type': 'application/json'}
-// });
-// const data = await response.json();
-
-// console.log(data);
-// //o 
-
 window.addEventListener('load', function() {
-  let nombre = document.querySelector('.nombre');
-  let imagen = document.querySelector('.imagen');
-  let precio = document.querySelector('.precio');
-  let cantidad = document.querySelector('.cantidad');
-  let subtotal = document.querySelector('.subtotal');
-  let id = document.querySelector('.esconderId');
-  let contenedorProducto = document.querySelector('.contenedorProducto');
+
   let contenedorGrande = document.querySelector('.contenedorGrande')
   let botonVaciar = document.querySelector('.botonVaciar')
-
+  
 
   let arrayProdSelec = JSON.parse(localStorage.getItem('arrayNew'))
-  console.log(arrayProdSelec);
 
   botonVaciar.addEventListener('click',function(){
     localStorage.removeItem('arrayNew');
@@ -33,17 +12,18 @@ window.addEventListener('load', function() {
   })
 
   fetch ('http://localhost:3003/api')
+
 				.then(response => response.json())
 				.then(productos =>{
-					
-					
 					
 					let listaProductos=[];
 
 					for (p of productos.data){
             for(i of arrayProdSelec){
               if(i == p.id){
+
                 let objaux={
+                  
                   id: p.id,
                   nombre:  p.nombre,
                   precio:  p.precio,
@@ -52,16 +32,50 @@ window.addEventListener('load', function() {
         
                 listaProductos.push(objaux);
                 break
+
               }
             }
 					}
+          
           for (a of listaProductos){
-            nombre.innerHTML = a.nombre
-            precio.innerHTML = a.precio
-            imagen.setAttribute("src", `/img/`+ a.img );
-            contenedorGrande.appendChild(contenedorProducto.cloneNode(true))
+            
+            let externalHTML = `<div class="basket-product contenedorProducto">
+                                <div class="item">
+                                  <div class="product-image">
+                                    <img src="/img/${a.img}" class="imagen">
+                                  </div>
+                                  <div class="product-details">
+                                    <h1 class="nombre">${a.nombre}</h1>
+                                  </div>
+                                </div>
+                                <div class="precio">${a.precio}</div>
+                                <div class="quantity">
+                                  <input type="number" value="" min="" class="cantidad">
+                                </div>
+                                <div class="subtotal"></div>
+                                <div class="remove">
+                                  <button>Remover</button>
+                                </div>
+                              </div>`
+             contenedorGrande.innerHTML += externalHTML
         }
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       //   window.addEventListener('load', function() {
       //     let array = [1,2,3]
       //     let cajaGrande = document.querySelector(".cajaGrande")

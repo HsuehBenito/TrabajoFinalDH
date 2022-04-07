@@ -343,7 +343,10 @@ aside {
 }
 .botonVaciar{
   display: row;
+
 }
+
+
 
 @media screen and (max-width: 640px) {
   aside,
