@@ -28,8 +28,10 @@ app.set('views', path.join(__dirname, './src/views'));
 // Routers
 const mainRoutes = require('./src/routes/mainRoutes');
 const userRoutes = require('./src/routes/userRoutes');
+const apiRoutes = require('./src/routes/apiRoutes');
 
 app.use('/', mainRoutes);
 app.use('/user', userRoutes);
+app.use('/api', apiRoutes);
 
 app.listen(process.env.PORT || 3003, () => console.log('Servidor levantado en el puerto 3003'));
