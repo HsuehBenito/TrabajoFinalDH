@@ -27,6 +27,16 @@ admin:  (req,res) => {
        })
    })
 },
-
+categorias:  (req,res) => {
+    db.categorias
+    .findAll()
+    .then(categorias => {
+        return res.status(200).json({
+            total: categorias.length,
+            data: categtorias,
+            status:200
+        })
+    })
+ },
 }
 module.exports = controller;
