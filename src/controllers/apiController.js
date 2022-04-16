@@ -38,5 +38,16 @@ categorias:  (req,res) => {
         })
     })
  },
+ ventas: (req,res) => {
+    db.ventas
+    .create(req.body)
+    .then(ventas => {
+        return res.status(200).json({
+            data: ventas,
+            status:200,
+            created: 'ok'
+        })
+    })
+ },
 }
 module.exports = controller;

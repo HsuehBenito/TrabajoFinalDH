@@ -1,17 +1,29 @@
 window.addEventListener('load', function() {
 
-  let contenedorGrande = document.querySelector('.contenedorGrande')
-  let botonVaciar = document.querySelector('.botonVaciar')
+  let contenedorGrande = document.querySelector('.contenedorGrande');
+  let botonVaciar = document.querySelector('.botonVaciar');
+  let botonPagar = document.querySelector('.pagar');
+  let pagarForm = document.querySelector('.pagarFormulario');
+  let cancelPagarForm = document.querySelector('.cancelPagarForm');
+  let confirmarPago = document.querySelector('.cancelPagarForm');
+  let arrayProdSelec = JSON.parse(localStorage.getItem('arrayNew'));
   
-
-  let arrayProdSelec = JSON.parse(localStorage.getItem('arrayNew'))
 
   botonVaciar.addEventListener('click',function(){
     localStorage.removeItem('arrayNew');
     location.reload();
   })
+  botonPagar.addEventListener('click', function(){
+    pagarForm.style.display = "block";
+  })
+  cancelPagarForm.addEventListener('click', function(){
+    pagarForm.style.display = "none";
+  })
+  confirmarPago.addEventListener('click', function(){
+    // push ventas db
+  })
 
-  fetch ('http://localhost:3003/api')
+  fetch ('/api')
 
 				.then(response => response.json())
 				.then(productos =>{
@@ -39,87 +51,49 @@ window.addEventListener('load', function() {
           
           for (a of listaProductos){
             
-            let externalHTML = `<div class="basket-product contenedorProducto">
-                                <div class="item">
-                                  <div class="product-image">
-                                    <img src="/img/${a.img}" class="imagen">
+            let externalHTML = `<div class="basket-product">
+                                  <div class="item">
+                                    <div class="product-image">
+                                      <img src="/img/${a.img}" alt="Placholder Image 2" class="product-frame">
+                                    </div>
+                                    <div class="product-details">
+                                      <h1><strong><span class="item-quantity"></span>${a.nombre}</h1>
+                                      
+                                    </div>
                                   </div>
-                                  <div class="product-details">
-                                    <h1 class="nombre">${a.nombre}</h1>
+                                  <div class="price">$${a.precio}</div>
+                                  <div class="quantity">
+                                    <input type="number" value="1" min="1" class="quantity-field">
                                   </div>
-                                </div>
-                                <div class="precio">${a.precio}</div>
-                                <div class="quantity">
-                                  <input type="number" value="" min="" class="cantidad">
-                                </div>
-                                <div class="subtotal"></div>
-                                <div class="remove">
-                                  <button>Remover</button>
-                                </div>
-                              </div>`
+                                  <div class="subtotal">$</div>
+                                  <div class="remove btn btn-secondary">
+                                    <button>Remover</button>
+                                  </div>
+                                </div>`
              contenedorGrande.innerHTML += externalHTML
         }
-  
+  })
 
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-      //   window.addEventListener('load', function() {
-      //     let array = [1,2,3]
-      //     let cajaGrande = document.querySelector(".cajaGrande")
-      //     let cajaChica = document.querySelector(".cajaChica")
-      //     let boton = document.querySelector(".clonar")
-      //     let parrafo = document.querySelector(".parrafo")
-      //     console.log("toy copiando");
-      
-      //     for (i=0; i < array.length; i++){
-      //         parrafo.innerHTML = "soy el numero"+ i
-      //         cajaGrande.append(cajaChica.cloneNode(true))
-              
-      //     }
-      
-          
-      
-      // })
-
-  
 })
-})
-//   module.exports = {
-//   read: (req, res) => {
-//  fetch('http://localhost:3003/api')}
-//   }
-// })
-//  .then(response => {
-//   //  for(i=0; i<arrayProdSelec.length;i++)
-//   //  let idProductoSeleccionado = arrayProdSelec[i];
-//   //       for (let p of productos.data){
-
-//   //           if(p.id==idProductoSeleccionado){
-//   //               productoSeleccionado=p;
-
-//   //           }
-//   //       }
-
-//  })
-//  }
-// } 
 
 
 
-// /* Set values + misc */
+
+
+
+
+
+
+
+
+
+
+//   /* Set values + misc */
 // var promoCode;
 // var promoPrice;
 // var fadeTime = 300;
@@ -244,3 +218,10 @@ window.addEventListener('load', function() {
 //     updateSumItems();
 //   });
 // }
+
+
+
+
+
+
+

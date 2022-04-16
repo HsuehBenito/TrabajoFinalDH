@@ -1,7 +1,8 @@
-<html>
+
+<html lang="en">
+
   <head>
-    
-    
+
     <meta name="viewport" content="width = device width, initial-scale=1.0">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -10,86 +11,66 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Shopping cart</title>
-    
 
-</head>
-  
-  <body>
-      <%- include('./partials/header') %>
-      <main>
-        <div class="basket">
-          <div class="basket-module">
-            <label for="promo-code">Ingresa tu codigo de descuento</label>
-            <input id="promo-code" type="text" name="promo-code" maxlength="5" class="promo-code-field">
-            <button class="promo-code-cta">Aplicar</button>
-          </div>
-          <div class="contenedor-boton-clear">
-            <button type="button" class="botonVaciar btn btn-warning">Vaciar Carrito</button>
-          </div>
-          <div class="basket-labels">
-            <ul>
-              <li class="item item-heading">Item</li>
-              <li class="price">Precio</li>
-              <li class="quantity">Cantidad</li>
-              <li class="subtotal">Subtotal</li>
-            </ul>
-          </div>
-          
-          <div class="contenedorGrande">
-            
-            <!-- <div class="basket-product contenedorProducto">
-              <div class="item">
-                <div class="product-image">
-                  <img src="" class="imagen">
-                </div>
-                <div class="product-details">
-                  <h1 class="nombre"></h1>
-                </div>
-              </div>
-              <div class="precio"></div>
-              <div class="quantity">
-                <input type="number" value="4" min="1" class="cantidad">
-              </div>
-              <div class="subtotal"></div>
-              <div class="remove">
-                <button></button>
-              </div>
-            </div>
-             -->
-          </div>
-        </div>
-        <aside>
-          <div class="summary">
-            <div class="summary-total-items"><span class="total-items"></span> Items in your Bag</div>
-            <div class="summary-subtotal">
-              <div class="subtotal-title">Subtotal</div>
-              <div class="subtotal-value final-value" id="basket-subtotal">130.00</div>
-              <div class="summary-promo hide">
-                <div class="promo-title">Promocion</div>
-                <div class="promo-value final-value" id="basket-promo"></div>
-              </div>
-            </div>
-            <div class="summary-delivery">
-              <select name="delivery-collection" class="summary-delivery-selection">
-                  <option value="0" selected="selected">Selecciona tu envio</option>
-                 
-                 <option value="first-class">OCA</option>
-                 <option value="second-class">Correo Argentino</option>
-                 <option value="signed-for">Mercado Envios</option>
-              </select>
-            </div>
-            <div class="summary-total">
-              <div class="total-title">Total</div>
-              <div class="total-value final-value" id="basket-total">130.00</div>
-            </div>
-            <div class="summary-checkout">
-              <button class="checkout-cta">Pagar</button>
-            </div>
-          </div>
-        </aside>
-        <script src="/js/carrito.js"></script>
-      </main>
+  </head>
+
+<body>
+  <%- include('./partials/header') %>
+  <main>
+    <div class="basket">
+      <div class="contenedor-boton-clear">
+        <button type="button" class="botonVaciar btn btn-warning">Vaciar Carrito</button>
+      </div>
+      <div class="basket-labels">
+        <ul>
+          <li class="item item-heading">Producto</li>
+          <li class="price">Precio</li>
+          <li class="quantity">Cantidad</li>
+          <li class="subtotal">Subtotal</li>
+        </ul>
+      </div>
+      <div class="contenedorGrande">
+        
+      </div>
       
-  </body>
-<%- include('./partials/footer') %>
+    </div>
+    <aside>
+      <div class="summary">
+        <div class="summary-total-items"><span class="total-items"></span>Resumen</div>
+        
+        <div class="summary-total">
+          <div class="total-title">Total</div>
+          <div class="total-value final-value" id="basket-total">$130.00</div>
+        </div>
+        <div class="summary-checkout">
+          <button class="checkout-cta pagar">Pagar</button>
+        </div>
+        <form class="pagarFormulario">
+          <div class="form-group">
+            <label >Nombre</label>
+            <input type="text" class="form-control" placeholder="Intruduzca su nombre">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email</label>
+            <input type="email" class="form-control"  aria-describedby="emailHelp" placeholder="Intruduzca su email">
+          </div>
+          <div class="form-group">
+            <label >Direccion</label>
+            <input type="text" class="form-control" placeholder="Intruduzca su direccion">
+          </div>
+          <div class="form-group formBotonContainer">
+
+            <button type="button" class="btn btn-danger cancelPagarForm">Cancelar</button>
+            <button type="submit" class="btn btn-primary botonPagarForm">Pagar</button>
+            
+          </div>
+        </form>
+      </div>
+      
+    </aside>
+    <script src="/js/carrito.js"></script>
+  </main>
+  <%- include('./partials/footer') %>
+</body>
+
 </html>

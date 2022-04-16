@@ -8,8 +8,10 @@
 
 body {
     background-image: url("/img/fotium.jpg");
-    background-size: 100em;
+    background-size: cover;
     background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
     
     
 }
@@ -116,6 +118,13 @@ body {
     font-size: 20px;
     text-align: center;
 }
+.footercito{
+    font-size: 20px;
+    margin-top: 150px;
+    color:black;
+    background-color: grey;
+    opacity: 70%;
+}
 /* centrando los botones de detail */
 .button-container{
     height: 100px;
@@ -133,12 +142,16 @@ body {
     margin-bottom: 4px;
 }
 
+
 /* tablet */ 
 
 @media (min-width: 768px) {
 .iconotlf {
     margin-top: 20px;
     margin-bottom: 20px;
+}
+body{
+    background-size: cover;
 }
 
 #masInfo {
@@ -218,12 +231,6 @@ body {
         color: #deb887;
     }
 
-    .footercito{
-        font-size: 20px;
-        margin-top: 150px;
-        color:black;
-        background-color: grey;
-        opacity: 70%;
-    }
+    
     
 }

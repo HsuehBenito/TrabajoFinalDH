@@ -12,7 +12,7 @@ body {
   background-color: #fff;
   color: #666;
   font-family: 'Open Sans', sans-serif;
-  font-size: 62.5%;
+  font-size: 80.5%;
   margin: 0 auto;
 }
 
@@ -31,13 +31,10 @@ p {
 }
 
 h1 {
-  font-size: 0.75rem;
+  font-size: 1rem;
   font-weight: normal;
   margin: 0;
   padding: 0;
-}
-.esconderId{
-  display: none;
 }
 
 input,
@@ -83,7 +80,7 @@ button,
 .subtotal-value:before,
 .total-value:before,
 .promo-value:before {
-  content: '£';
+  content: '';
 }
 
 .hide {
@@ -92,7 +89,7 @@ button,
 
 main {
   clear: both;
-  font-size: 0.75rem;
+  font-size: 1rem;
   margin: 0 auto;
   overflow: hidden;
   padding: 1rem 0;
@@ -109,7 +106,6 @@ aside {
 
 .basket {
   width: 70%;
-  
 }
 
 .basket-module {
@@ -187,15 +183,15 @@ li.subtotal:before {
   float: right;
   position: absolute;
   right: 0;
-  text-align: right;
-  width: 45%;
+  text-align: center;
+  width: 15%;
 }
 
 .remove button {
   background-color: transparent;
-  color: #777;
+  color: black;
   float: none;
-  text-decoration: underline;
+  text-decoration: none;
   text-transform: uppercase;
 }
 
@@ -210,10 +206,13 @@ li.subtotal:before {
   border-bottom: 1px solid #ccc;
   padding: 1rem 0;
   position: relative;
+  background-color:rgba(251, 251, 251, 0.5)
+  
 }
 
 .product-image {
   width: 35%;
+  height: 150px
 }
 
 .product-details {
@@ -222,6 +221,8 @@ li.subtotal:before {
 
 .product-frame {
   border: 1px solid #aaa;
+  width: 100%;
+  height: 100%;
 }
 
 .product-details {
@@ -251,8 +252,7 @@ aside {
   border: 1px solid #aaa;
   padding: 1rem;
   position: fixed;
-  margin-left: 800px;
-  width: 20%;
+  width: 250px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -341,12 +341,20 @@ aside {
   height: 34px;
   width: 100%;
 }
-.botonVaciar{
-  display: row;
-
+.pagarFormulario{
+  display:none;
+  margin-top: 30px;
+  height: 35%
 }
 
-
+.botonPagarForm{
+  margin-top: 10px;
+  float: right;
+}
+.cancelPagarForm{
+  margin-top: 10px;
+  float: left;
+}
 
 @media screen and (max-width: 640px) {
   aside,
@@ -384,16 +392,16 @@ aside {
   }
   .remove {
     bottom: 0;
-    text-align: left;
+    text-align: center;
     margin-top: 0.75rem;
     position: relative;
-  }
+}
   .remove button {
     padding: 0;
   }
   .summary {
-    margin-top: 0;
-    
+    margin-top: 1.25rem;
+    position: relative;
   }
 }
 
@@ -401,23 +409,16 @@ aside {
   aside {
     padding: 0 1rem 0 0;
   }
-  /* .summary {
-    justify-content: center;
-    vertical-align: bottom;
-    display: inline-block;
-  } */
+  .summary {
+    width: 28%;
+  }
 }
 
 @media screen and (max-width: 960px) {
   main {
     width: 100%;
   }
-  .summary{
-    max-height: 20%;
-    position:fixed
-  }
   .product-details {
     padding: 0 1rem;
   }
 }
-
