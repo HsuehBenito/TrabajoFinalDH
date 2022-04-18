@@ -72,9 +72,48 @@ window.addEventListener('load', function() {
                                 </div>`
              contenedorGrande.innerHTML += externalHTML
         }
+        var removeCartItemButtons = document.getElementsByClassName('remove')
+    for (var i = 0; i < removeCartItemButtons.length; i++) {
+        var button = removeCartItemButtons[i]
+        button.addEventListener('click', removeCartItem)
+    }
+
+    var quantityInputs = document.getElementsByClassName('quantity-field')
+    for (var i = 0; i < quantityInputs.length; i++) {
+        var input = quantityInputs[i]
+        input.addEventListener('change', quantityChanged)
+    }
+  
+function removeCartItem(event) {
+    var buttonClicked = event.target
+    buttonClicked.parentElement.parentElement.remove()
+    updateCartTotal()
+    localStorage.removeItem('arrayNew'[i]);
+}
+function quantityChanged(event) {
+  var input = event.target
+  if (isNaN(input.value) || input.value <= 0) {
+      input.value = 1
+  }
+  updateCartTotal()
+}
+function updateCartTotal() {
+  var cartItemContainer = document.getElementsByClassName('contenedorGrande')[0]
+  var cartRows = cartItemContainer.getElementsByClassName('basket-product')
+  var total = 0
+  for (var i = 0; i < cartRows.length; i++) {
+      var cartRow = cartRows[i]
+      var priceElement = cartRow.getElementsByClassName('price')[0]
+      var quantityElement = cartRow.getElementsByClassName('quantity-field')[0]
+      var price = parseFloat(priceElement.innerText.replace('$', ''))
+      var quantity = quantityElement.value
+      total = total + (price * quantity)
+  }
+  total = Math.round(total * 100) / 100
+  document.getElementsByClassName('final-value')[0].innerText = '$' + total
+}
   })
-
-
+  
 
 
 
