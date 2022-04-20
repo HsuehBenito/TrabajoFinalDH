@@ -65,14 +65,14 @@ window.addEventListener('load', function() {
                                   <div class="quantity">
                                     <input type="number" value="1" min="1" class="quantity-field">
                                   </div>
-                                  <div class="subtotal">$</div>
+                                  <div class="subtotal-product">$</div>
                                   <div class="remove btn btn-secondary">
-                                    <button>Remover</button>
+                                    <button id = "${a.id}">Remover</button>
                                   </div>
                                 </div>`
              contenedorGrande.innerHTML += externalHTML
         }
-        var removeCartItemButtons = document.getElementsByClassName('remove')
+    var removeCartItemButtons = document.getElementsByClassName('remove')
     for (var i = 0; i < removeCartItemButtons.length; i++) {
         var button = removeCartItemButtons[i]
         button.addEventListener('click', removeCartItem)
@@ -86,9 +86,19 @@ window.addEventListener('load', function() {
   
 function removeCartItem(event) {
     var buttonClicked = event.target
-    buttonClicked.parentElement.parentElement.remove()
+    console.log(event.target.id)
+    buttonClicked.parentElement.parentElement.parentElement.remove()
+
+    function checkArray(arrayProdSelec){
+      return arrayProdSelec !== event.target.id
+    }
+    const result = arrayProdSelec.filter(checkArray)
+    localStorage.setItem('arrayNew', JSON.stringify(result))
+    
     updateCartTotal()
-    localStorage.removeItem('arrayNew'[i]);
+    location.reload();
+    
+   
 }
 function quantityChanged(event) {
   var input = event.target
@@ -107,8 +117,11 @@ function updateCartTotal() {
       var quantityElement = cartRow.getElementsByClassName('quantity-field')[0]
       var price = parseFloat(priceElement.innerText.replace('$', ''))
       var quantity = quantityElement.value
+      subtotal = price * quantity
+      subtotal = Math.round(total * 100) / 100
       total = total + (price * quantity)
   }
+  
   total = Math.round(total * 100) / 100
   document.getElementsByClassName('final-value')[0].innerText = '$' + total
 }

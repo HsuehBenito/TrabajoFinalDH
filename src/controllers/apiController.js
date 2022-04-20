@@ -13,7 +13,7 @@ api:  (req,res) => {
            count: productos.length,
            data: productos.map(producto=>{
                return{
-                id: producto.nombre,
+                id: producto.id,
                 administrador: {nombre: producto.administrador.nombre_completo},
                 nombre: producto.nombre,
                 blend: producto.blend,
