@@ -12,6 +12,7 @@ app.use(session({
 	resave: false,
 	saveUninitialized: false,
 }));
+app.use(express.json());
 
 app.use(cookies());
 

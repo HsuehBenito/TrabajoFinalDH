@@ -43,4 +43,5 @@ router.delete('/delete/:id', usersController.destroy);
 // multer
 router.post('/crear-producto',productosValidations, productosUploadFile.single('img'),usersController.store);// 
 
+router.post('/comprar',usersController.comprar);
 module.exports = router;

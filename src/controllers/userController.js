@@ -180,7 +180,12 @@ const controller = {
 				res.render('home');
      	})
     	},
-
+		comprar: (req, res) => {
+			
+			
+			console.log(req.body)
+			res.sendStatus(200)
+		}
 	
 		
 }
