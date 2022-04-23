@@ -62,9 +62,9 @@ window.addEventListener('load', function() {
                                   </div>
                                   <div class="price">$${a.precio}</div>
                                   <div class="quantity">
-                                    <input type="number" value="1" min="1" class="quantity-field">
+                                    <input type="number" value="0" min="1" class="quantity-field">
                                   </div>
-                                  <div class="subtotal-product">$</div>
+                                  
                                   <div class="remove btn btn-secondary">
                                     <button id = "${a.id}">Remover</button>
                                   </div>
@@ -119,36 +119,42 @@ function updateCartTotal() {
       var quantityElement = cartRow.getElementsByClassName('quantity-field')[0]
       var price = parseFloat(priceElement.innerText.replace('$', ''))
       var quantity = quantityElement.value
-      subtotal = price * quantity
-      subtotal = Math.round(total * 100) / 100
+      // subtotal = price * quantity
+      // subtotal = Math.round(total * 100) / 100
       total = total + (price * quantity)
   }
   
   total = Math.round(total * 100) / 100
   document.getElementsByClassName('final-value')[0].innerText = '$' + total
 }
-  
-let totalValor = document.getElementsByClassName('final-value');
-let nombreCompra = document.getElementsByClassName('nombreCompra');
-let emailCompra = document.getElementsByClassName('emailCompra');
-let direccionCompra = document.getElementsByClassName('direccionCompra');
+
 
 
 
   confirmarPago.addEventListener("click", 
   async () => {
-    function detalleCompra(){
-      var cartItemContainer = document.getElementsByClassName('contenedorGrande')[0]
-      var cartRows = cartItemContainer.getElementsByClassName('basket-product')
+    
+    Date.prototype.yyyymmdd = function() {
+      var mm = this.getMonth() + 1; // getMonth() is zero-based
+      var dd = this.getDate();
+    
+      return [this.getFullYear(),
+              (mm>9 ? '' : '0') + mm,
+              (dd>9 ? '' : '0') + dd
+             ].join('-');
+    };
+    
+    var date = new Date();
+    
+    let cartItemContainer = document.getElementsByClassName('contenedorGrande')[0]
+      let cartRows = cartItemContainer.getElementsByClassName('basket-product')
       let arrayCompra = []
-      for (var i = 0; i < cartRows.length; i++) {
-        var quantityElement = cartRow.getElementsByClassName('quantity-field')[0]
-        var nombreProd = cartRow.getElementsByClassName('nombreProducto')[0]
+      for (let i = 0; i < cartRows.length; i++) {
+        let quantityElement = cartRow.getElementsByClassName('quantity-field')[0]
+        let nombreProd = cartRow.getElementsByClassName('nombreProducto')[0]
         arrayCompra.push(quantityElement[i].value,nombreProd[i].value)
       }
-    }
-    detalleCompra();
-    console.log("asdasd")
+    
     const rawResponse = await fetch('http://localhost:3003/user/comprar', {
       method: 'POST',
       headers: {
@@ -157,14 +163,15 @@ let direccionCompra = document.getElementsByClassName('direccionCompra');
       },
       body: JSON.stringify({
         // id	fecha_venta	total	nombre	email	direccion	detalle	
-
-        fecha_venta: Date.now() ,
-        total: totalValor.value,
-        nombre:nombreCompra.value,
-        email:emailCompra.value,
-        direccion: direccionCompra.value,
-        detalle : arrayCompra,
-
+        
+        fecha_venta: date.yyyymmdd(),
+        total: document.getElementsByClassName('final-value')[0].value,
+        nombre:document.getElementsByClassName('nombreCompra')[0].value,
+        email:document.getElementsByClassName('emailCompra')[0].value,
+        direccion: document.getElementsByClassName('direccionCompra')[0].value,
+        
+        
+        
         
 
       })

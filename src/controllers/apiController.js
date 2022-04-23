@@ -30,25 +30,26 @@ api:  (req,res) => {
        })
    })
 },
-// admin:  (req,res) => {
-//    db.administrador
-//    .findAll()
-//    .then(administrador => {
-//        return res.status(200).json({
-//            total: administrador.length,
-//            data: administrador,
-//            status:200
-//        })
-//    })
-// },
+administrador:  (req,res) => {
+   db.administrador
+   .findAll()
+   .then(administrador => {
+       return res.status(200).json({
+           count: administrador.length,
+           data: administrador,
+           status:200
+       })
+   })
+},
 categorias:  (req,res) => {
     db.categorias
     .findAll()
     .then(categorias => {
         return res.status(200).json({
-            total: categorias.length,
+            count: categorias.length,
             data: categorias.map(categoria=>{
                 return{
+                 
                  id: categoria.id,
                  nombre: categoria.nombre,
                 }

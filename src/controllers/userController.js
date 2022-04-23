@@ -181,10 +181,21 @@ const controller = {
      	})
     	},
 		comprar: (req, res) => {
+			db.ventas.create(
+    	{ 
+		fecha_venta: req.body.fecha_venta,
+        total: 123123,
+        nombre:req.body.nombre,
+        email:req.body.email,
+        direccion:req.body.direccion,
+		detalle:"no lo sabemos"
+		})
+		.then((resultados)  => { 
 			
-			
-			console.log(req.body)
+			console.log(resultados)
 			res.sendStatus(200)
+	 })
+			
 		}
 	
 		

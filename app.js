@@ -6,7 +6,11 @@ const app = express();
 const path = require('path');
 const userLoggedMiddleware = require('./src/middlewares/userLoggedMiddleware');
 const fetch = require('node-fetch');
-
+app.use(function(req, res, next) {
+	res.header('Access-Control-Allow-Origin', req.headers.origin);
+	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+	next();
+});
 app.use(session({
 	secret: "ILSECRETOLOCO!@#123",
 	resave: false,
