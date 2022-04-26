@@ -6,24 +6,32 @@
 
 
             <nav class = "navegador"> 
+                <div class="ctn-menu">
                 <ul class="lista">
-                    
+                    <div class="datos-header-mobile">
+                        <a href="/">
+                            <div class="datos-header-mobile-ctn">
+                                <p>Alzacopas</p>
+                            </div>
+                        </a>
+                    </div>
                       <li><a href="/producto">Productos</a></li>
                       <% if (!locals.isLogged) { %>
                       <li><a href="/user/login">Ingresar</a></li>
                       <li><a href="/user/register">Registrarse</a></li>
                       <li><a href="/user/carrito">Mis compras</a></li>
-                      
+
                       <% } %>
-                      
+
+
                       <% if (locals.isLogged) { %>
                       <li><a href="/user/crear-producto">Crear Producto</a></li>
                       <li><a href="/user/profile">Perfil</a></li>
                       <li><a href="/user/logout">Logout</a></li>
                       <% } %>
-                      
-                </ul>
 
+                </ul>
+            </div>
             </nav>
 
             <div class="lupita">
@@ -36,6 +44,9 @@
               </a>
           </div>
 
+          <div id="overlay"></div>
+
 
 </div>
+ <script src="/js/menuCelu.js"></script>
 </header>
