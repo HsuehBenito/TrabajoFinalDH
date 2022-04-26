@@ -183,13 +183,13 @@ body {
 }
 
 .info-inner .p-name p{
-  font-family: 'PT Sans', sans-serif;
+  font-family: "Quattrocento";
   font-size: 18px;
   color: #0a0909;
 }
 
 .info-inner .p-company {
-  font-family: 'Lato', sans-serif;
+  font-family: "Quattrocento";
   font-size: 12px;
   text-transform: uppercase;
   color: #463f3f;
@@ -209,7 +209,7 @@ body {
   position: absolute;
   width: 100%;
   bottom: -20px;
-  font-family: 'PT Sans', sans-serif;
+  font-family: "Quattrocento";
   color: #3b3939;
   opacity: 0;
 }
@@ -225,7 +225,7 @@ body {
   height: 100%;
   top: 0;
   left: 0;
-  font-family: 'Lato', sans-serif;
+  font-family: "Quattrocento";
   font-weight: 700;
 }
 

@@ -1,6 +1,6 @@
 @charset "utf-8";
 
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,600);
+
 
 html,
 html a {
@@ -11,7 +11,7 @@ html a {
 body {
   background-color: #fff;
   color: #666;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Quattrocento";
   font-size: 80.5%;
   margin: 0 auto;
 }

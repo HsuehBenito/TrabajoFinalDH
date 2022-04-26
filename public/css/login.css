@@ -118,7 +118,7 @@ body {
     pointer-events: none; }
   
   .control__indicator:after {
-    font-family: 'icomoon';
+    font-family: "Quattrocento";
     content: '\e5ca';
     position: absolute;
     display: none;

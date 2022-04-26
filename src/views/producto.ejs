@@ -32,11 +32,12 @@
                                   <div class="h-bg-inner"></div>
                                 </div>
                       
-                                <a class="cart" href="#">
+                                <a class="cart" href="/detail/<%=producto.id%>">
                                   <span class="price"><p>$<%=producto.precio%></p></span>
                                  
                                   <span class="add-to-cart">
-                                    <button class="addCarrito" id="<%= producto.id %>">Agregar a carrito</button>
+                                    
+                                    <button class="btn btn-primary" id="<%= producto.id %>">Detalle</button>
                                   </span>
                                 </a>
                               </div>
