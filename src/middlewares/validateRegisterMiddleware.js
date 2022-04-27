@@ -7,7 +7,10 @@ module.exports = [
 		.isLength({min:2}).withMessage('El nombre debe tener mas de 2 caracteres'),
 	body('email')
 		.notEmpty().withMessage('Tienes que escribir un correo electrónico')//bail
-		.isEmail().withMessage('Debes escribir un formato de correo válido'),
+		.isEmail().withMessage('Debes escribir un formato de correo válido')
+		.custom().withMessage("Email en uso"),
+		
+		
 	body('password')
 		.notEmpty().withMessage('Tienes que escribir una contraseña')
 		.isLength({min:8}).withMessage('La contraseña debe tener mas de 8 caracteres'),
@@ -18,7 +21,7 @@ module.exports = [
 	body('foto_perfil').custom((value, { req }) => {
 		let file = req.file;
 		let acceptedExtensions = ['.jpg', '.png', '.gif','.jpeg'];
-
+		
 		if (!file) {
 			throw new Error('Tienes que subir una imagen');
 		} else {

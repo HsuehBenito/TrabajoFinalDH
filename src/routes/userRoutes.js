@@ -17,7 +17,7 @@ const authMiddleware = require('../middlewares/authMiddleware');
 router.get('/register', guestMiddleware, usersController.register);
 
 // Procesar el registro
-router.post('/register', userUploadFile.single('foto_perfil'), usersController.processRegister);//registerValidations,  
+router.post('/register',userUploadFile.single('foto_perfil'), registerValidations,   usersController.processRegister);//
 
 // Formulario de login
 router.get('/login', guestMiddleware, usersController.login);
@@ -37,7 +37,7 @@ router.get('/crear-producto', usersController.crear);
 router.get('/carrito', usersController.carrito);
 // edit
 router.get('/editar-producto/:id', usersController.edit);
-router.put('/editar-producto/:id', productosValidations, productosUploadFile.single("img"), usersController.update); // agregamos uploadfile.single para ver si pega encima
+router.put('/editar-producto/:id', productosValidations, productosUploadFile.single("img"), usersController.update); // 
 // delete
 router.delete('/delete/:id', usersController.destroy);
 // multer

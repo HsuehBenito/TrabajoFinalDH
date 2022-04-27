@@ -2,11 +2,10 @@ const bcryptjs = require('bcryptjs');
 const fs = require('fs');
 const fetch = require('node-fetch');
 const path = require('path');
-const {
-	validationResult
-} = require('express-validator');
+const { body, validationResult } = require('express-validator');
 
 const db = require('../database/models/');
+const { administrador } = require('./apiController');
 
 const controller = {
 	login: (req, res) => {
@@ -51,9 +50,18 @@ const controller = {
 	register: (req, res) => {
 		return res.render('formulario');
 	},
-	processRegister: function(req,res){
+	processRegister:async function(req,res){
+		
 		const resultValidation = validationResult(req)
+		
 		let p = bcryptjs.hashSync(req.body.password, 10)
+		
+		// await db.administrador.findAll()
+		// .then(resultados => {for(a of resultados){
+		// 	if(req.body.email == a.email){
+		// 		resultValidation.errors.email.push("Email en uso")
+		// 	}
+		// }})
 		
 		if (resultValidation.errors.length > 0) {
 			return res.render('formulario', {
@@ -137,7 +145,7 @@ const controller = {
 						(console.log(error))
 						});
 				 })
-
+				
 				 .then(res.render("home"));
 			
 		},
